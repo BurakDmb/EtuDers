@@ -65,7 +65,7 @@
     </div>
 
 
-    <div class="modal fade" id="sonuc" tabindex="-1" role="dialog" aria-labelledby="sonucTitle" aria-hidden="true">
+    <div class="modal fade" id="sonuc" tabindex="-1" role="dialog" aria-labelledby="sonucTitle" aria-hidden="true" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header mx-auto">
@@ -90,6 +90,16 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="yukleniyor" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mx-auto">
+                    <h3>Olası programlarınız hesaplanıyor, lütfen bekleyiniz.</h3>
+                    <img class="img-fluid mx-auto d-block" src="loading.gif">
                 </div>
             </div>
         </div>
@@ -190,9 +200,12 @@
 
 
         }
-
+        $(document).on('hidden.bs.modal', '.modal', function () {
+            $('.modal:visible').length && $(document.body).addClass('modal-open');
+        });
         var obj;
         $('button#submit').on('click', function () {
+            $("#yukleniyor").modal();
             var cakisma= $('input#cakisma').val();
             var derslistesi = []
             $("input[name='derslistesi[]']:checked").each(function ()
@@ -204,7 +217,9 @@
                 resetsonuclar();
                 obj = JSON.parse(data);
 
+                console.log(obj);
                 var sonucvar=0;
+
                 for (var i in obj){
 
                     var tr = document.createElement('tr');
@@ -235,17 +250,21 @@
                     sonucvar=1;
 
                 }
+                $("#yukleniyor").modal('toggle');
                 if(sonucvar==0){
+                    $("#hata").focus();
                     $("#hata").modal();
                 }
                 else{
-                    $("#sonuc").modal();
+                    $("#sonuc").focus();
+                    $("#sonuc").modal('toggle');
                 }
 
             });
 
 
         });
+
         function resetsonuclar() {
             var sonuclar=document.getElementById("programList");
             while (sonuclar.firstChild) {

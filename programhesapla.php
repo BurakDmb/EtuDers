@@ -45,12 +45,16 @@ function programOlustur($dersler){
 }
 function cakismali($program, $limit){
     $uygunolanlar=array();
-    for($j=0;$j<count($program);$j++){
-        if($program[$j]->cakismasayisi<=$limit){
-            $uygunolanlar[]=$program[$j];
+    for($a=0;$a<=$limit;$a++){
+        for($j=0;$j<count($program);$j++){
+            if($program[$j]->cakismasayisi==$a){
+                $uygunolanlar[]=$program[$j];
+            }
         }
     }
-    return $uygunolanlar;
+
+
+    return ($uygunolanlar);
 }
 
 if(isset($_POST['derslistesi'])  ){
