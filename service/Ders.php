@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: burak
- * Date: 29.12.2017
- * Time: 03:19
- */
+
 
 class Ders
 {

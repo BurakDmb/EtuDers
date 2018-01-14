@@ -1,12 +1,19 @@
 <div class="jumbotron col-md-8 offset-md-2 bg-light ">
-    <h4 class="display-4 text-center">EtuDers - Ders Programı Oluştur</h4>
+    <h4 class="display-4 text-center">EtuDers - Ders Programı Oluşturucu</h4>
     <p class="lead text-center">
         Ders programı oluşturma aracımızla, normalde oldukça uğraştırıcı olan kendi ders programınızı oluşturma sürecinizi saniyelere indiriyoruz. Mantık olarak seçtiğiniz dersleri kendi aralarındaki tüm kombinasyonlarını hesaplayıp size en az çakışmalı olan programları sunuyoruz.
 
     </p>
     <hr class="my-4">
     <p class="lead text-center">
-        Program oluşturma aracını herhangi bir öğrenci bilgisi gerektirmeden kullanabilirsiniz, öneri/tavsiye için <a href="mailto:burakhan@demirbilek.eu?Subject=EtuDers%20Hk." target="_top">burakhan@demirbilek.eu</a> adresinden bana ulaşabilirsiniz.<br>
+        Ders programı oluşturma aracını herhangi bir öğrenci bilgisi gerektirmeden kullanabilirsiniz, öneri/tavsiye için <a href="mailto:burakhan@demirbilek.eu?subject=EtuDers Hk." target="_top">burakhan@demirbilek.eu</a> adresinden bana ulaşabilirsiniz.
+        <br>
+        <div class="row">
+
+            <div class="lead col-md-12 text-center">
+                <b><?php include __DIR__."/../counter/sorgu_counter.php"; echo "Toplam sorgu sayısı: ".sorguCounter(0)?></b>
+            </div>
+        </div>
 
     </p>
 
@@ -18,8 +25,8 @@
                     <div class="card-header text-center">
                         <b>Ders Listesi</b>
                     </div>
-                    <div class="card-body" style="height:400px;overflow-y: scroll">
-                        <?php include "derslistesiform.php";?>
+                    <div class="card-body " style="height:550px;overflow-y: scroll;background-color: #f8f9fa">
+                        <?php include __DIR__."/derslistesiform.php";?>
                     </div>
                 </div>
 
@@ -51,12 +58,12 @@
 
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" style="height:390px;overflow-y: scroll">
                     <div class="card-header text-center">
                         <b>Seçilmiş olan dersler</b>
                     </div>
 
-                    <div id="secilmisDersler" class="card-body text-center" style="height:240px;overflow-y: scroll">
+                    <div id="secilmisDersler" class="card-body text-center" >
 
                     </div>
                 </div>
@@ -99,7 +106,7 @@
             <div class="modal-content">
                 <div class="modal-body mx-auto">
                     <h3>Olası programlarınız hesaplanıyor, lütfen bekleyiniz.</h3>
-                    <img class="img-fluid mx-auto d-block" src="loading.gif">
+                    <img class="img-fluid mx-auto d-block" src="../loading.gif">
                 </div>
             </div>
         </div>
@@ -108,12 +115,30 @@
         <div class="modal-dialog " role="document">
             <div class="modal-content text-center">
                 <h5 class="modal-header text-center mx-auto">
-                    HATA
+                    Hata
 
                 </h5>
 
                 <div class="modal-body ">
                     <h4>Girmiş olduğunuz maksimum çakışma limitine eşit veya daha az çakışmalı program bulunamamıştır.</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="hata2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content text-center">
+                <h5 class="modal-header text-center mx-auto">
+                    Hata
+
+                </h5>
+
+                <div class="modal-body ">
+                    <h4>Lütfen ders seçiniz.</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -205,14 +230,20 @@
         });
         var obj;
         $('button#submit').on('click', function () {
-            $("#yukleniyor").modal();
+
             var cakisma= $('input#cakisma').val();
             var derslistesi = []
             $("input[name='derslistesi[]']:checked").each(function ()
             {
                 derslistesi.push(parseInt($(this).val()));
             });
-            $.post('programhesapla.php',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
+            if(derslistesi.length==0){
+                $("#hata2").focus();
+                $("#hata2").modal('show');
+                return;
+            }
+            $("#yukleniyor").modal();
+            $.post('../service/programhesapla.php',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
 
                 resetsonuclar();
                 obj = JSON.parse(data);
@@ -230,7 +261,7 @@
 
                     var text1 = document.createTextNode(Number(i)+1);
                     var text2 = document.createTextNode(obj[i].cakismasayisi);
-                    var text3 = document.createTextNode('Goruntule');
+                    var text3 = document.createTextNode('Görüntüle');
 
                     var button= document.createElement('button');
                     button.className+=' btn btn-primary'
@@ -252,8 +283,10 @@
                 }
                 $("#yukleniyor").modal('toggle');
                 if(sonucvar==0){
+
                     $("#hata").focus();
-                    $("#hata").modal();
+                    $("#hata").modal('toggle');
+
                 }
                 else{
                     $("#sonuc").focus();

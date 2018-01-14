@@ -1,3 +1,17 @@
+<?php
+if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
+    if(!headers_sent()) {
+        header("Status: 301 Moved Permanently");
+        header(sprintf(
+            'Location: https://%s%s',
+            $_SERVER['HTTP_HOST'],
+            $_SERVER['REQUEST_URI']
+        ));
+        exit();
+    }
+}
+?>
+
 <!doctype html>
 <html lang="tr">
 <head>
@@ -9,7 +23,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <title>EtuDers</title>
+    <title>EtuDers - Ders Programı Oluşturucu</title>
 </head>
 <body  style="background-image: url('etuders.png');background-repeat: inherit">
 
@@ -21,8 +35,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
     <?php
-    include "miniheader.php";
-    include "program.php";
+    include __DIR__."/layout/miniheader.php";
+    include __DIR__."/layout/program.php";
     ?>
 
 

@@ -1,8 +1,9 @@
 <?php
-include "Plan.php";
-include "Ders.php";
-include "Sube.php";
-include "Saat.php";
+include __DIR__."/Plan.php";
+include __DIR__."/Ders.php";
+include __DIR__."/Sube.php";
+include __DIR__."/Saat.php";
+include __DIR__."/../counter/sorgu_counter.php";
 function debug_to_console( $data ) {
     $output = $data;
     if ( is_array( $output ) )
@@ -59,10 +60,11 @@ function cakismali($program, $limit){
 
 if(isset($_POST['derslistesi'])  ){
 
+    sorguCounter(1);
     if(is_array($_POST['derslistesi'])){
 
         $derslist=$_POST['derslistesi'];
-        if(!isset($_POST['cakisma']))
+        if(empty($_POST['cakisma']))
             $cakismalimit=2;
         else
             $cakismalimit=$_POST['cakisma'];

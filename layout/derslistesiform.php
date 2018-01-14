@@ -1,6 +1,15 @@
 
-    <div id="accordion" role="tablist">
+    <div id="accordion"  role="tablist">
         <?php
+        $opts = array(
+            'http'=>array(
+                'method'=>"GET",
+                'header'=>"Accept-language: tr\r\n" .
+                    "Cookie: foo=bar\r\n" .
+                    "Accept: application/json\r\n"
+            )
+        );
+        $context = stream_context_create($opts);
         $dersListesi = json_decode(file_get_contents('http://obs.etu.edu.tr:35/DersProgrami/api/ders/getlist/?dil=tr', false, $context), true);
         $oncekikod="";
         foreach($dersListesi as $ders) { //foreach element in $arr
@@ -15,7 +24,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" onclick="checkboxchange()" value="<?php echo $ders['DersID'];?> " name="derslistesi[]" >
                                     <label class="form-check-label" for="defaultCheck1">
-                                        <?php echo $ders['DersKodu'];?>
+                                        <?php echo $ders['DersKodu']." ".$ders['DersAdi'];?>
                                     </label>
                                 </div>
                             </li>
@@ -53,7 +62,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" onclick="checkboxchange()" value="<?php echo $ders['DersID'];?>" name="derslistesi[]">
                                     <label class="form-check-label" for="defaultCheck1">
-                                        <?php echo $ders['DersKodu'];?>
+                                        <?php echo $ders['DersKodu']." ".$ders['DersAdi'];?>
                                     </label>
                                 </div>
                             </li>
