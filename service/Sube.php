@@ -19,6 +19,8 @@ class Sube
             foreach ($sube['OgrenciDersProgram'] as $saat){
                 if(isset($saat['DersKoduList'][0]))
                     array_push($this->Saatler,new Saat($saat['Baslangic'], $saat['Bitis'], $saat['Gun'], $saat['DersKoduList'],$this->SubeNo,$this->DersKodu));
+                else if(isset($saat['DersKodu'])&&$saat['DersKodu']!="-")
+                    array_push($this->Saatler,new Saat($saat['Baslangic'], $saat['Bitis'], $saat['Gun'], $saat['DersKoduList'],$this->SubeNo,$saat['DersKodu']));
             }
         }
 

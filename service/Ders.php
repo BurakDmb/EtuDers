@@ -6,7 +6,7 @@ class Ders
     public $dersAdi;
     public $derskodu;
     public $Subeler;
-    public function __construct($dersid)
+    public function __construct($dersid,$subeno)
     {
         $opts = array(
             'http'=>array(
@@ -18,7 +18,7 @@ class Ders
         );
         $context = stream_context_create($opts);
 
-        $ders = json_decode(file_get_contents('http://obs.etu.edu.tr:35/DersProgrami/api/dersprogramplan/dersProgram/'.$dersid.'/0?dil=tr', false, $context),true);
+        $ders = json_decode(file_get_contents('http://obs.etu.edu.tr:35/DersProgrami/api/dersprogramplan/dersProgram/'.$dersid.'/'.$subeno.'?dil=tr', false, $context),true);
         $dersadi=json_decode(file_get_contents('http://obs.etu.edu.tr:35/DersProgrami/api/ders/get/'.$dersid.'/?dil=tr', false, $context),true);
         $this->derskodu=$dersadi['DersKodu'];
         $this->dersAdi=$dersadi['DersAdi'];

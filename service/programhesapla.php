@@ -14,7 +14,8 @@ function debug_to_console( $data ) {
 function programOlustur($dersler){
     $tmpDers=array();
     $olasilik=1;
-    for($a=0;$a<15;$a++){
+    $ders_sayisi=count($dersler);
+    for($a=0;$a<$ders_sayisi;$a++){
         if($a<count($dersler)){
             $tmpDers[$a]=count($dersler[$a]->Subeler);
             $olasilik=$olasilik*$tmpDers[$a];
@@ -27,7 +28,6 @@ function programOlustur($dersler){
 
         array_push($tmpProgram,new Plan());
     $tmpsayac=0;
-    $ders_sayisi=count($dersler);
     $loop="";
     for ($i=0;$i<$ders_sayisi;$i++){
         $loop.="for(\$b$i=0;\$b$i<\$tmpDers[$i];\$b$i++){";
@@ -48,6 +48,7 @@ function cakismali($program, $limit){
     $uygunolanlar=array();
     for($a=0;$a<=$limit;$a++){
         for($j=0;$j<count($program);$j++){
+
             if($program[$j]->cakismasayisi==$a){
                 $uygunolanlar[]=$program[$j];
             }
@@ -72,7 +73,7 @@ if(isset($_POST['derslistesi'])  ){
         $dersler=array();
 
         foreach ($derslist as $dersno){
-            array_push($dersler,new Ders($dersno));
+            array_push($dersler,new Ders($dersno,0));
         }
 
         $ders_sayisi=count($dersler);
@@ -86,7 +87,11 @@ if(isset($_POST['derslistesi'])  ){
     else
         echo json_encode(null);
 }
-else
-    echo json_encode(null);
+else{
+    if(!isset($_POST['okul_numarasi']))
+        echo json_encode(null);
+
+
+}
 
 ?>

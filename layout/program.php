@@ -101,6 +101,35 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="oneri" tabindex="-1" role="dialog" aria-labelledby="oneriTitle" aria-hidden="true" >
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header mx-auto">
+                    <h5 class="modal-title text-center" id="oneriTitle">Programınıza uyan önerilen bölüm dersleri</h5>
+
+                </div>
+                <div class="modal-body ">
+                    <table class="table" >
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Ders Adı</th>
+                            <th scope="col">Görüntüle</th>
+                        </tr>
+                        </thead>
+                        <tbody id="oneriList">
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="yukleniyor" tabindex="-1"  aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -225,83 +254,185 @@
 
 
         }
+        function getCookie(name) {
+            var dc = document.cookie;
+            var prefix = name + "=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            }
+            else
+            {
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1) {
+                    end = dc.length;
+                }
+            }
+            // because unescape has been deprecated, replaced with decodeURI
+            //return unescape(dc.substring(begin + prefix.length, end));
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        }
+        $('form#okulno').on( "submit", function( event ) {
+            event.preventDefault();
+            if($.isNumeric($('form#okulno').serializeArray()[0].value)&&$('form#okulno').serializeArray()[0].value.length==9){
+                $.post('../service/okulnologin.php',{ okul_numarasi: $('form#okulno').serializeArray()[0].value}, function (data) {
+
+                    //console.log(data);
+                    location.reload();
+                });
+            }
+            else{
+                alert("Lütfen okul numaranızı tekrar giriniz, girdiğiniz değer sadece 9 adet rakamdan oluşmalıdır.");
+            }
+
+
+        });
         $(document).on('hidden.bs.modal', '.modal', function () {
             $('.modal:visible').length && $(document.body).addClass('modal-open');
         });
         var obj;
+        var oneriobj;
         $('button#submit').on('click', function () {
 
-            var cakisma= $('input#cakisma').val();
-            var derslistesi = []
-            $("input[name='derslistesi[]']:checked").each(function ()
-            {
-                derslistesi.push(parseInt($(this).val()));
+                var cakisma= $('input#cakisma').val();
+                var derslistesi = []
+                $("input[name='derslistesi[]']:checked").each(function ()
+                {
+                    derslistesi.push(parseInt($(this).val()));
+                });
+                if(derslistesi.length==0){
+                    $("#hata2").focus();
+                    $("#hata2").modal('show');
+                    return;
+                }
+                $("#yukleniyor").modal();
+                $.post('../service/programhesapla.php',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
+
+                    resetsonuclar();
+                    obj = JSON.parse(data);
+
+                    console.log(obj);
+                    var sonucvar=0;
+
+                    for (var i in obj){
+
+                        var tr = document.createElement('tr');
+
+                        var td1 = document.createElement('td');
+                        var th = document.createElement('th');
+                        var td2 = document.createElement('td');
+
+                        var text1 = document.createTextNode(Number(i)+1);
+                        var text2 = document.createTextNode(obj[i].cakismasayisi);
+                        var text3 = document.createTextNode('Görüntüle');
+
+                        var button= document.createElement('button');
+                        button.className+=' btn btn-primary'
+                        button.type="button";
+                        button.onclick=programgoster;
+                        button.appendChild(text3);
+
+                        td1.appendChild(text1);
+                        th.appendChild(text2);
+                        td2.appendChild(button);
+
+                        tr.appendChild(td1);
+                        tr.appendChild(th);
+                        tr.appendChild(td2);
+                        document.getElementById("programList").appendChild(tr);
+
+                        sonucvar=1;
+
+                    }
+                    $("#yukleniyor").modal('toggle');
+                    if(sonucvar==0){
+
+                        $("#hata").focus();
+                        $("#hata").modal('toggle');
+
+                    }
+                    else{
+                        $("#sonuc").focus();
+                        $("#sonuc").modal('toggle');
+                    }
+
+                });
+
+
             });
-            if(derslistesi.length==0){
-                $("#hata2").focus();
-                $("#hata2").modal('show');
-                return;
-            }
-            $("#yukleniyor").modal();
-            $.post('../service/programhesapla.php',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
+        $('button#onerilen').on('click', function () {
 
-                resetsonuclar();
-                obj = JSON.parse(data);
+                var okulno= getCookie("okul_numarasi");
+                if(okulno !== null) {
+                    $("#yukleniyor").modal();
+                    $.post('../service/onerilenders.php', {okul_numarasi: okulno}, function (data) {
+                        resetsonuclar();
+                        oneriobjarr=JSON.parse(data);
+                        oneriobj = oneriobjarr;
 
-                console.log(obj);
-                var sonucvar=0;
+                        console.log(oneriobj);
+                        var sonucvar = 0;
 
-                for (var i in obj){
+                        for (var i in oneriobj) {
 
-                    var tr = document.createElement('tr');
+                            var tr = document.createElement('tr');
 
-                    var td1 = document.createElement('td');
-                    var th = document.createElement('th');
-                    var td2 = document.createElement('td');
+                            var td1 = document.createElement('td');
+                            var th = document.createElement('th');
+                            var td2 = document.createElement('td');
 
-                    var text1 = document.createTextNode(Number(i)+1);
-                    var text2 = document.createTextNode(obj[i].cakismasayisi);
-                    var text3 = document.createTextNode('Görüntüle');
+                            var text1 = document.createTextNode(Number(i) + 1);
+                            var text2 = document.createTextNode(oneriobj[i]['derskodu']+"-"+oneriobj[i]['derssube']);
+                            var text3 = document.createTextNode('Görüntüle');
 
-                    var button= document.createElement('button');
-                    button.className+=' btn btn-primary'
-                    button.type="button";
-                    button.onclick=programgoster;
-                    button.appendChild(text3);
+                            var button = document.createElement('button');
+                            button.className += ' btn btn-primary'
+                            button.type = "button";
+                            button.onclick = onerigoster;
+                            button.appendChild(text3);
 
-                    td1.appendChild(text1);
-                    th.appendChild(text2);
-                    td2.appendChild(button);
+                            td1.appendChild(text1);
+                            th.appendChild(text2);
+                            td2.appendChild(button);
 
-                    tr.appendChild(td1);
-                    tr.appendChild(th);
-                    tr.appendChild(td2);
-                    document.getElementById("programList").appendChild(tr);
+                            tr.appendChild(td1);
+                            tr.appendChild(th);
+                            tr.appendChild(td2);
+                            document.getElementById("oneriList").appendChild(tr);
 
-                    sonucvar=1;
+                            sonucvar = 1;
+
+                        }
+                        $("#yukleniyor").modal('toggle');
+                        if (sonucvar == 0) {
+
+                            $("#hata").focus();
+                            $("#hata").modal('toggle');
+
+                        }
+                        else {
+                            $("#oneri").focus();
+                            $("#oneri").modal('toggle');
+                        }
+
+
+                    });
 
                 }
-                $("#yukleniyor").modal('toggle');
-                if(sonucvar==0){
-
-                    $("#hata").focus();
-                    $("#hata").modal('toggle');
-
-                }
-                else{
-                    $("#sonuc").focus();
-                    $("#sonuc").modal('toggle');
-                }
-
-            });
-
-
         });
-
+        function replaceAll(str, find, replace) {
+            return str.replace(new RegExp(find, 'g'), replace);
+        }
         function resetsonuclar() {
             var sonuclar=document.getElementById("programList");
             while (sonuclar.firstChild) {
                 sonuclar.removeChild(sonuclar.firstChild);
+            }
+            var onerisonuclar=document.getElementById("oneriList");
+            while (onerisonuclar.firstChild) {
+                onerisonuclar.removeChild(onerisonuclar.firstChild);
             }
         }
         function programgoster() {
@@ -382,6 +513,142 @@
                             tmpstr=tmpstr+grid[i][5][cakisma].dersno+'-'+grid[i][5][cakisma].subeno+" ";
                         }
                         text7 = document.createTextNode(tmpstr);
+                    }
+                }
+
+                th.scope="row";
+                th.style="background-color: #3174ae";
+                th.className="text-white ";
+
+                td1.appendChild(text2);
+                td2.appendChild(text3);
+                td3.appendChild(text4);
+                td4.appendChild(text5);
+                td5.appendChild(text6);
+                td6.appendChild(text7);
+
+                tr.appendChild(th);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                document.getElementById("programPanel").appendChild(tr);
+            }
+            $("#goster").modal();
+        }
+        function onerigoster() {
+            var id=this.parentElement.parentElement.firstChild.firstChild.textContent;
+            var grid=oneriobj[Number(id)-1]['dersprog'].grid;
+            resetgrid();
+            for(var i=0;i<13;i++){
+                var saat1 = 8+i;
+                var saat2= saat1+1;
+
+                var tr = document.createElement('tr');
+
+                var th = document.createElement('th');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+                var text1 = document.createTextNode(saat1+".30-"+saat2+".20");
+                th.appendChild(text1);
+                var text2 = document.createTextNode('-');
+                var text3 = document.createTextNode('-');
+                var text4 = document.createTextNode('-');
+                var text5 = document.createTextNode('-');
+                var text6 = document.createTextNode('-');
+                var text7 = document.createTextNode('-');
+
+                var bold = document.createElement("b");
+
+                //burası daha kısa yapılabilir, çok üşendim :)
+                if(grid[i]!=null){
+                    var tmpstr="";
+                    if(grid[i][0]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][0]){
+                            if(grid[i][0][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma].dersno,"<br />","\n")+"-"+grid[i][0][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        //console.log(tmpstr);
+                        text2 = document.createTextNode(tmpstr);
+
+
+                    }
+                    if(grid[i][1]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][1]){
+                            if(grid[i][1][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma].dersno,"<br />","\n")+"-"+grid[i][1][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+
+                        text3 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][2]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][2]){
+                            if(grid[i][2][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma].dersno,"<br />","\n")+"-"+grid[i][2][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text4 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][3]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][3]){
+                            if(grid[i][3][cakisma].subeno!= "0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma].dersno,"<br />","\n")+"-"+grid[i][3][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text5 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][4]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][4]){
+                            if(grid[i][4][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma].dersno,"<br />","\n")+"-"+grid[i][4][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text6 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][5]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][5]){
+                            if(grid[i][5][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma].dersno,"<br />","\n")+"-"+grid[i][5][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text7 = document.createTextNode(tmpstr);
+
                     }
                 }
 

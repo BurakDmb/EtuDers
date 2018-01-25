@@ -20,6 +20,29 @@
 
 
         </ul>
+        <?php
+        if(!isset($_COOKIE['okul_numarasi'])) {
+            ?>
+            <form id="okulno" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" placeholder="Okul numaran" name="okul_numarasi" aria-label="okulno">
+                <input class="btn btn-success my-2 my-sm-0" value="Okul Numaranı Gir" type="submit">
+            </form>
+            <?php
+        } else {
+
+            ?>
+            <div class="my-2 my-lg-0">
+
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Okul numaranız sadece tarayıcınızın çerezler bölümünde saklanmaktadır, başka bir sunucuya aktarılmamaktadır.">
+                    <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Okul numaranız: <?php echo $_COOKIE['okul_numarasi'];?></button>
+                </span>
+                <button class="btn btn-success my-2 my-sm-0" type="button" id="onerilen">Alabileceğin Önerilen Dersler</button>
+                <button type="button" class="btn btn-danger" onclick="document.cookie = 'okul_numarasi=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';location.reload();">Okul Numaranı Sil</button>
+            </div>
+            <?php
+        }
+        ?>
+
 
     </div>
 </nav>
