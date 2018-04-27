@@ -1,24 +1,35 @@
-<div class="jumbotron col-md-8 offset-md-2 bg-light ">
+<div class="jumbotron col-md-8 offset-md-2 bg-light bootstrap-fs-modal">
     <h4 class="display-4 text-center">EtuDers - Ders Programı Oluşturucu</h4>
     <p class="lead text-center">
-        Ders programı oluşturma aracımızla, normalde oldukça uğraştırıcı olan kendi ders programınızı oluşturma sürecinizi saniyelere indiriyoruz. Mantık olarak seçtiğiniz dersleri kendi aralarındaki tüm kombinasyonlarını hesaplayıp size en az çakışmalı olan programları sunuyoruz.
+        Ders programı oluşturma aracımızla, normalde oldukça uğraştırıcı olan kendi ders programınızı oluşturma sürecinizi saniyelere indiriyoruz.
+        Mantık olarak seçtiğiniz dersleri kendi aralarındaki tüm kombinasyonlarını hesaplayıp, sizin istediğiniz çakışma limitinden az olan programları size sunuyoruz, bu sayede size uygun ders programlarını kolayca görebilir ve ders kayıt dönemini kolayca atlatabilirsiniz.
 
     </p>
     <hr class="my-4">
     <p class="lead text-center">
-        Ders programı oluşturma aracını herhangi bir öğrenci bilgisi gerektirmeden kullanabilirsiniz, öneri/tavsiye için <a href="mailto:burakhan@demirbilek.eu?subject=EtuDers Hk." target="_top">burakhan@demirbilek.eu</a> adresinden bana ulaşabilirsiniz.
+        Ders listesi ve şube bilgileri sorgu yapılırken anlık olarak ETU-OBS 'den otomatik alınmaktadır, alınan bilgilerin tamamına normal bir öğrenci de erişebilir.
+        EtuDers sadece bu ders bilgilerine hızlı sürede erişip, kendi sunucusunda hesaplama yaparak kullanıcıya istediği dersleri içeren ders programı çıktıları sunmaktadır.
+
+    </p>
+    <hr class="my-4">
+    <p class="lead text-center">
+        Bu site okulumuzdaki herkesin kolayca ders programı yapabilmesi için Burak Han Demirbilek tarafından yapılmıştır. Destek olmak için siteyi arkadaşlarınızla paylaşabilirsiniz <i class="far fa-smile"></i>
+        <br>
+        Her türlü öneri veya hata bildirimleriniz için <a href="mailto:burakhan.demirbilek@gmail.com?subject=EtuDers Hk." target="_top">burakhan.demirbilek@gmail.com</a> mail adresinden bana ulaşabilirsiniz.
         <br>
         <div class="row">
 
-            <div class="lead col-md-12 text-center">
-                <b><?php include __DIR__."/../counter/sorgu_counter.php"; echo "Toplam sorgu sayısı: ".sorguCounter(0)?></b>
+            <div class="lead col-md-6 text-center">
+                <b><?php include __DIR__."/../counter/sorgu_counter.php";  echo "Geçen dönemki toplam sorgu sayısı: ".sorguCounter(2)?></b>
             </div>
+        <div class="lead col-md-6 text-center">
+            <b><?php  echo "Bu dönemki toplam sorgu sayısı: ".sorguCounter(0)?></b>
         </div>
-
+        </div>
     </p>
 
     <hr class="my-4">
-    <div class="container">
+    <div class="container ">
         <form class="row" >
             <div id="dersList" class="col-md-6" >
                 <div class="card">
@@ -32,33 +43,54 @@
 
             </div>
             <div class="col-md-6" >
+
                 <div class="card">
                     <div class="card-header text-center">
                         <b>İşlemler</b>
                     </div>
-                    <div  class="card-body" style="height:160px;overflow-y: auto;">
+                    <div  class="card-body text-center " >
                         <div class="row align-self-center">
-                            <span class="mx-auto " >
-                                <div class="form-group text-center">
-                                    <label for="cakisma" >Maks. çakışma limiti</label>
-                                    <input type="text" class="form-control" id="cakisma"  placeholder="Varsayılan: 2">
+                            <div class="card-group col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span class="mx-auto " >
+                                            <div class="form-group text-center">
+                                                <label for="cakisma" >Maksimum çakışma limiti</label>
+                                                <input type="text" class="form-control" id="cakisma" style="text-align:center" placeholder="Varsayılan: 2">
 
+                                            </div>
+                                        </span>
+                                    </div>
                                 </div>
-                            </span>
-                            <span class="mx-auto " >
-                                <button type="button" class="btn btn-success" id="submit"  >
-                                    Hesapla
-                                </button>
-                            </span>
-                            <span class="mx-auto " >
-                                <button type="button" onclick="uncheckall()" class="btn btn-danger align-self-center">Sıfırla</button>
-                            </span>
+                            </div>
+                            <div class="card-group col-md-12">
+
+                                <div class="card col-md-12">
+                                    <div class="card-body align-middle">
+                                        <span class="mx-auto align-middle" >
+                                            <button type="button" class="btn btn-success align-middle" id="submit"  >
+                                                Hesapla
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card col-md-6">
+                                    <div class="card-body">
+                                        <span class="mx-auto " >
+                                            <button type="button" onclick="uncheckall()" class="btn btn-danger align-self-center">Sıfırla</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         </div>
 
 
                     </div>
                 </div>
-                <div class="card" style="height:390px;overflow-y: scroll">
+                <div class="card" style="height:300px;overflow-y: scroll">
                     <div class="card-header text-center">
                         <b>Seçilmiş olan dersler</b>
                     </div>
@@ -75,9 +107,11 @@
     <div class="modal fade" id="sonuc" tabindex="-1" role="dialog" aria-labelledby="sonucTitle" aria-hidden="true" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header mx-auto">
-                    <h5 class="modal-title text-center" id="sonucTitle">Sonuçlar</h5>
-
+                <div class="modal-header ">
+                    <h5 class="modal-title text-center mx-auto" id="sonucTitle">Sonuçlar</h5>
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body ">
                     <table class="table" >
@@ -94,19 +128,18 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
 
-                </div>
             </div>
         </div>
     </div>
     <div class="modal fade" id="oneri" tabindex="-1" role="dialog" aria-labelledby="oneriTitle" aria-hidden="true" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header mx-auto">
-                    <h5 class="modal-title text-center" id="oneriTitle">Programınıza uyan önerilen bölüm dersleri</h5>
-
+                <div class="modal-header">
+                    <h5 class="modal-title text-center  mx-auto" id="oneriTitle">Programınıza uyan önerilen bölüm dersleri</h5>
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body ">
                     <table class="table" >
@@ -123,10 +156,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
 
-                </div>
             </div>
         </div>
     </div>
@@ -140,21 +170,30 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="yukleniyorOgrenci" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mx-auto">
+                    <h3>Ders programınız yükleniyor, lütfen bekleyiniz.</h3>
+                    <img class="img-fluid mx-auto d-block" src="../loading.gif">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="hata" tabindex="-1" role="dialog" aria-labelledby="hataTitle" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content text-center">
                 <h5 class="modal-header text-center mx-auto">
                     Hata
-
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </h5>
 
                 <div class="modal-body ">
                     <h4>Girmiş olduğunuz maksimum çakışma limitine eşit veya daha az çakışmalı program bulunamamıştır.</h4>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
 
-                </div>
             </div>
         </div>
     </div>
@@ -163,11 +202,28 @@
             <div class="modal-content text-center">
                 <h5 class="modal-header text-center mx-auto">
                     Hata
-
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </h5>
 
                 <div class="modal-body ">
                     <h4>Lütfen ders seçiniz.</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="hataOgrenci" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content text-center">
+                <h5 class="modal-header text-center mx-auto">
+                    Hata
+
+                </h5>
+
+                <div class="modal-body ">
+                    <h4>Girilmiş olan öğrenci numarasına ait program bulunamadı.</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -179,13 +235,15 @@
     <div class="modal fade" id="goster" tabindex="-1" role="dialog" aria-labelledby="gosterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header mx-auto">
-                    <h5 class="modal-title text-center" id="gosterTitle">Program</h5>
-
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto" id="gosterTitle">Program</h5>
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body ">
+                <div class="modal-body">
                     <div class="table-responsive table-bordered">
-                        <table class="table">
+                        <table class="table table-hover">
                             <thead style="background-color: #3174ae">
                             <tr class="text-white">
                                 <th scope="col">Saat</th>
@@ -203,13 +261,11 @@
                         </table>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
 
-                </div>
             </div>
         </div>
     </div>
+
     <script>
         checkboxchange();
         function getCheckedBoxes(chkboxName) {
@@ -294,6 +350,7 @@
         });
         var obj;
         var oneriobj;
+        var ogrenciobj;
         $('button#submit').on('click', function () {
 
                 var cakisma= $('input#cakisma').val();
@@ -362,66 +419,114 @@
 
 
             });
-        $('button#onerilen').on('click', function () {
+        $('button#ogrenci').on('click', function () {
 
                 var okulno= getCookie("okul_numarasi");
                 if(okulno !== null) {
-                    $("#yukleniyor").modal();
-                    $.post('../service/onerilenders.php', {okul_numarasi: okulno}, function (data) {
+                    $("#yukleniyorOgrenci").modal();
+                    $.post('../service/ogrenciprog.php', {okul_numarasi: okulno}, function (data) {
                         resetsonuclar();
-                        oneriobjarr=JSON.parse(data);
-                        oneriobj = oneriobjarr;
+                        ogrenciobjarr=JSON.parse(data);
+                        ogrenciobj = ogrenciobjarr;
 
-                        console.log(oneriobj);
-                        var sonucvar = 0;
+                        console.log(ogrenciobj);
+                        var sonucvar = 1;
+                        ogrencigoster()
 
-                        for (var i in oneriobj) {
 
-                            var tr = document.createElement('tr');
 
-                            var td1 = document.createElement('td');
-                            var th = document.createElement('th');
-                            var td2 = document.createElement('td');
-
-                            var text1 = document.createTextNode(Number(i) + 1);
-                            var text2 = document.createTextNode(oneriobj[i]['derskodu']+"-"+oneriobj[i]['derssube']);
-                            var text3 = document.createTextNode('Görüntüle');
-
-                            var button = document.createElement('button');
-                            button.className += ' btn btn-primary'
-                            button.type = "button";
-                            button.onclick = onerigoster;
-                            button.appendChild(text3);
-
-                            td1.appendChild(text1);
-                            th.appendChild(text2);
-                            td2.appendChild(button);
-
-                            tr.appendChild(td1);
-                            tr.appendChild(th);
-                            tr.appendChild(td2);
-                            document.getElementById("oneriList").appendChild(tr);
-
-                            sonucvar = 1;
-
-                        }
-                        $("#yukleniyor").modal('toggle');
+                        $("#yukleniyorOgrenci").modal('toggle');
                         if (sonucvar == 0) {
 
-                            $("#hata").focus();
-                            $("#hata").modal('toggle');
+                            $("#hataOgrenci").focus();
+                            $("#hataOgrenci").modal('toggle');
 
                         }
                         else {
-                            $("#oneri").focus();
-                            $("#oneri").modal('toggle');
+                            $("#goster").focus();
+                            $("#goster").modal('toggle');
+                            var backButton = function (ev) {
+                                $("#goster").modal('toggle');
+                            };
+                            document.addEventListener("backbutton", backButton, false);
                         }
 
 
                     });
 
+                    $(window).on("navigate", function (event, data) {
+                        var direction = data.state.direction;
+                        if (direction == 'back') {
+                            // do something
+                        }
+                        if (direction == 'forward') {
+                            // do something else
+                        }
+                    });
                 }
         });
+        $('button#onerilen').on('click', function () {
+
+            var okulno= getCookie("okul_numarasi");
+            if(okulno !== null) {
+                $("#yukleniyor").modal();
+                $.post('../service/onerilenders.php', {okul_numarasi: okulno}, function (data) {
+                    resetsonuclar();
+                    oneriobjarr=JSON.parse(data);
+                    oneriobj = oneriobjarr;
+
+                    console.log(oneriobj);
+                    var sonucvar = 0;
+
+                    for (var i in oneriobj) {
+
+                        var tr = document.createElement('tr');
+
+                        var td1 = document.createElement('td');
+                        var th = document.createElement('th');
+                        var td2 = document.createElement('td');
+
+                        var text1 = document.createTextNode(Number(i) + 1);
+                        var text2 = document.createTextNode(oneriobj[i]['derskodu']+"-"+oneriobj[i]['derssube']);
+                        var text3 = document.createTextNode('Görüntüle');
+
+                        var button = document.createElement('button');
+                        button.className += ' btn btn-primary'
+                        button.type = "button";
+                        button.onclick = onerigoster;
+                        button.appendChild(text3);
+
+                        td1.appendChild(text1);
+                        th.appendChild(text2);
+                        td2.appendChild(button);
+
+                        tr.appendChild(td1);
+                        tr.appendChild(th);
+                        tr.appendChild(td2);
+                        document.getElementById("oneriList").appendChild(tr);
+
+                        sonucvar = 1;
+
+                    }
+                    $("#yukleniyor").modal('toggle');
+                    if (sonucvar == 0) {
+
+                        $("#hata").focus();
+                        $("#hata").modal('toggle');
+
+                    }
+                    else {
+                        $("#oneri").focus();
+                        $("#oneri").modal('toggle');
+                    }
+
+
+                });
+
+            }
+        });
+
+
         function replaceAll(str, find, replace) {
             return str.replace(new RegExp(find, 'g'), replace);
         }
@@ -541,6 +646,142 @@
         function onerigoster() {
             var id=this.parentElement.parentElement.firstChild.firstChild.textContent;
             var grid=oneriobj[Number(id)-1]['dersprog'].grid;
+            resetgrid();
+            for(var i=0;i<13;i++){
+                var saat1 = 8+i;
+                var saat2= saat1+1;
+
+                var tr = document.createElement('tr');
+
+                var th = document.createElement('th');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+                var text1 = document.createTextNode(saat1+".30-"+saat2+".20");
+                th.appendChild(text1);
+                var text2 = document.createTextNode('-');
+                var text3 = document.createTextNode('-');
+                var text4 = document.createTextNode('-');
+                var text5 = document.createTextNode('-');
+                var text6 = document.createTextNode('-');
+                var text7 = document.createTextNode('-');
+
+                var bold = document.createElement("b");
+
+                //burası daha kısa yapılabilir, çok üşendim :)
+                if(grid[i]!=null){
+                    var tmpstr="";
+                    if(grid[i][0]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][0]){
+                            if(grid[i][0][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma].dersno,"<br />","\n")+"-"+grid[i][0][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        //console.log(tmpstr);
+                        text2 = document.createTextNode(tmpstr);
+
+
+                    }
+                    if(grid[i][1]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][1]){
+                            if(grid[i][1][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma].dersno,"<br />","\n")+"-"+grid[i][1][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+
+                        text3 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][2]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][2]){
+                            if(grid[i][2][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma].dersno,"<br />","\n")+"-"+grid[i][2][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text4 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][3]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][3]){
+                            if(grid[i][3][cakisma].subeno!= "0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma].dersno,"<br />","\n")+"-"+grid[i][3][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text5 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][4]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][4]){
+                            if(grid[i][4][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma].dersno,"<br />","\n")+"-"+grid[i][4][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text6 = document.createTextNode(tmpstr);
+
+                    }
+                    if(grid[i][5]!=null){
+                        tmpstr="";
+                        for (var cakisma in grid[i][5]){
+                            if(grid[i][5][cakisma].subeno!="0"){
+                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma].dersno,"<br />","\n")+"-"+grid[i][5][cakisma].subeno+" ";
+                            }
+                            else{
+                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma].dersno,"<br />","\n")+" ";
+                            }
+                        }
+                        text7 = document.createTextNode(tmpstr);
+
+                    }
+                }
+
+                th.scope="row";
+                th.style="background-color: #3174ae";
+                th.className="text-white ";
+
+                td1.appendChild(text2);
+                td2.appendChild(text3);
+                td3.appendChild(text4);
+                td4.appendChild(text5);
+                td5.appendChild(text6);
+                td6.appendChild(text7);
+
+                tr.appendChild(th);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                document.getElementById("programPanel").appendChild(tr);
+            }
+            $("#goster").modal();
+        }
+        function ogrencigoster() {
+            //var id=this.parentElement.parentElement.firstChild.firstChild.textContent;
+            var grid=ogrenciobj.grid;
             resetgrid();
             for(var i=0;i<13;i++){
                 var saat1 = 8+i;

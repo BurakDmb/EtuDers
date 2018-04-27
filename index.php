@@ -10,6 +10,8 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
         exit();
     }
 }
+include __DIR__."/counter/ziyaretci_counter.php";
+ziyaretciCounter(0);
 ?>
 
 <!doctype html>
@@ -23,6 +25,9 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link href="bootstrap-fs-modal.min.css" rel="stylesheet">
     <title>EtuDers - Ders Programı Oluşturucu</title>
 </head>
 <body  style="background-image: url('etuders.png');background-repeat: inherit">

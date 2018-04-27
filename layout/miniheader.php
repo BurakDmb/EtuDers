@@ -16,32 +16,56 @@
                 <a class="nav-link" target="_blank" href="http://ubs.etu.edu.tr/">ETU-UBS</a>
             </li>
 
-
-
-
         </ul>
-        <?php
-        if(!isset($_COOKIE['okul_numarasi'])) {
-            ?>
-            <form id="okulno" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" placeholder="Okul numaran" name="okul_numarasi" aria-label="okulno">
-                <input class="btn btn-success my-2 my-sm-0" value="Okul Numaranı Gir" type="submit">
-            </form>
-            <?php
-        } else {
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
 
-            ?>
-            <div class="my-2 my-lg-0">
 
-                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Okul numaranız sadece tarayıcınızın çerezler bölümünde saklanmaktadır, başka bir sunucuya aktarılmamaktadır.">
-                    <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Okul numaranız: <?php echo $_COOKIE['okul_numarasi'];?></button>
-                </span>
-                <button class="btn btn-success my-2 my-sm-0" type="button" id="onerilen">Alabileceğin Önerilen Dersler</button>
-                <button type="button" class="btn btn-danger" onclick="document.cookie = 'okul_numarasi=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';location.reload();">Okul Numaranı Sil</button>
-            </div>
             <?php
-        }
-        ?>
+            if(!isset($_COOKIE['okul_numarasi'])) {
+                ?>
+                <form id="okulno" class="form-inline my-2 my-lg-0">
+                    <span style="color: white" class="nav-link align-middle fas fa-question-circle fa-2x" data-toggle="tooltip" data-placement="bottom" title="Öğrenci numaranızı girerek ders programınızı sekme değiştirmeden, bu sayfa üzerinden görebilirsiniz."></span>
+
+                    <input class="form-control mr-sm-2" placeholder="Okul numaran" name="okul_numarasi" aria-label="okulno">
+                    <input class="btn btn-success my-2 my-sm-0" value="Okul Numaranı Gir" type="submit">
+
+
+
+                </form>
+                <?php
+            }
+            else {
+
+                ?>
+
+
+                <div class="my-2 my-lg-0 ">
+
+                        <span style="color: white" class="nav-link align-middle fas fa-question-circle fa-2x" data-toggle="tooltip" data-placement="bottom" title="Öğrenci numaranızı girerek ders programınızı sekme değiştirmeden, bu sayfa üzerinden görebilirsiniz."></span>
+
+
+                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="">
+                            <button class="btn btn-secondary" style="pointer-events: none;" type="button" disabled>
+                                Okul numaranız: <?php echo $_COOKIE['okul_numarasi'];?>
+                            </button>
+                        </span>
+
+                        <button class="btn btn-primary my-2 my-sm-0" type="button" id="ogrenci" data-toggle="tooltip" data-placement="bottom" title="Güncel ders programınızı gösterir.">Ders Programın</button>
+
+                        <button class="btn btn-success my-2 my-sm-0" type="button" id="onerilen" disabled data-toggle="tooltip" data-placement="bottom" title="Mevcut ders programınıza uyan, eklenmesi durumunda çakışma yaratmayacak bölüm derslerinizi size sunar. Not: Hala geliştirme aşamasında olduğu için bu özellik devre dışıdır.">Alabileceğin Önerilen Dersler</button>
+
+
+                        <button type="button" class="btn btn-danger" onclick="document.cookie = 'okul_numarasi=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';location.reload();">Okul Numaranı Sil</button>
+
+                </div>
+                <?php
+            }
+            ?>
+
 
 
     </div>
