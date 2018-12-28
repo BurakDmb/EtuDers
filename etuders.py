@@ -7,6 +7,8 @@ from copy import deepcopy
 
 
 import urllib2
+import urllib3
+urllib3.disable_warnings()
 import re
 import requests
 import json
