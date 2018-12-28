@@ -1,5 +1,5 @@
 
-## ETUDERS - Timetable creator tool for [TOBB ETU](https://www.etu.edu.tr/en)
+** ETUDERS - Timetable creator tool for [TOBB ETU](https://www.etu.edu.tr/en) **
 This is a timetable creator tool for students in [TOBB ETU](https://www.etu.edu.tr/en). This project has been deployed with heroku free plan.
 
 
