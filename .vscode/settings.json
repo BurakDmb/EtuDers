@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Burak\\.virtualenvs\\EtuDers-D2eUUvKK\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\Burak\\.virtualenvs\\EtuDers-D2eUUvKK\\Scripts\\python.exe",
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
 }

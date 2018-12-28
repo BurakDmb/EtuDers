@@ -23,8 +23,8 @@ db=SQLAlchemy(application)
 
 class Log(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    dersId = db.Column(db.String(6), unique=True, nullable=False)
-    ip = db.Column(db.String(16), unique=True, nullable=False)
+    dersId = db.Column(db.String(6), nullable=False)
+    ip = db.Column(db.String(16), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
@@ -183,7 +183,9 @@ def programOlustur(derslistesi ,limit, ipAdres):
     for dersno in derslistesi:
         dersler.append(Ders(dersno,0)) #0 tum subeler icin
         db.session.add(Log(dersId=dersno, ip=ipAdres))
+    db.session.commit()    
     return alternatifProgramlariHesapla(dersler, 0, [Plan()], limit)
+
 
 #Recursion ders programlarını hesaplama fonksiyonu
 def alternatifProgramlariHesapla(dersListesi, mevcutDersIndex, mevcutProgram, limit):
