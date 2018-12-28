@@ -1,15 +1,17 @@
 
-** ETUDERS - Timetable creator tool for [TOBB ETU](https://www.etu.edu.tr/en) **
+**ETUDERS - Timetable creator tool for [TOBB ETU](https://www.etu.edu.tr/en)**
+
+
 This is a timetable creator tool for students in [TOBB ETU](https://www.etu.edu.tr/en). This project has been deployed with heroku free plan.
 
 
-This tool needs a [TOBB ETU](https://www.etu.edu.tr/en) student credentials to work, you should set these credentials in env. variables using these commands:
+This tool needs a [TOBB ETU UBS](https://ubs.etu.edu.tr/) student credentials to work, you should set these credentials in env. variables using these commands:
 ```
 set txtLogin=TOBB_ETU_USERNAME
 set txtPassword=TOBB_ETU_PASSWORD
 ```
 
-Firstly, you need python2 and pipenv(`pip install --user pipenv`) 
+Firstly, you need [python2](https://www.python.org/downloads/) and pipenv(`pip install --user pipenv`) 
 
 
 After that, execute this command:
