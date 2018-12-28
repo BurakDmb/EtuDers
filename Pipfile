@@ -12,6 +12,7 @@ waitress = "*"
 requests = "*"
 win-unicode-console = "*"
 gunicorn = "*"
+certifi = "*"
 
 [requires]
 python_version = "2.7"

@@ -5,18 +5,22 @@ sys.setdefaultencoding('utf8')
 from datetime import datetime
 from copy import deepcopy
 
+
 import urllib2
 import re
 import requests
 import json
 import os
+import ssl
 basedir = os.path.abspath(os.path.dirname(__file__))
-
+ssl._create_default_https_context = ssl._create_unverified_context
 #Oturum classı, bu class sayesinde her sorgu sırasında tekrar okulun sistemine giriş yapmak yerine mevcut session'ı ve oturum nonun kullanılması sağlanır.
 class Oturum:
 
     def __init__(self):
+        requests.Session().close()
         self.session=requests.Session()
+
         self.oturumAktif=False
         self.oturumNo=self.getOturumNo()
 
@@ -31,7 +35,7 @@ class Oturum:
     def oturumKontrolEt(self):
         self.oturumAktif=False
         headersGet= {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-language":"tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7","cache-control":"max-age=0","upgrade-insecure-requests":"1"}
-        r = self.session.get('https://ubs.etu.edu.tr/Ogrenci/Ogr0413/Default.aspx?lang=tr-TR',headers=headersGet)
+        r = self.session.get('https://ubs.etu.edu.tr/Ogrenci/Ogr0413/Default.aspx?lang=tr-TR',headers=headersGet, verify=False)
         #Login yapılmış durumda
         if re.search(r'https:\/\/program\.etu\.edu\.tr\/DersProgrami\/\?oturumNo=(.*)', r.url) is not None:
             self.oturumNo=re.search(r'https:\/\/program\.etu\.edu\.tr\/DersProgrami\/\?oturumNo=(.*)', r.url).group(1)
