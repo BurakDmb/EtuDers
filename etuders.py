@@ -4,7 +4,8 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 from datetime import datetime
 from copy import deepcopy
-
+from flask_sqlalchemy import SQLAlchemy
+from etudersweb import application
 
 import urllib2
 import urllib3
@@ -14,8 +15,24 @@ import requests
 import json
 import os
 import ssl
+context = ssl._create_unverified_context()
 basedir = os.path.abspath(os.path.dirname(__file__))
-ssl._create_default_https_context = ssl._create_unverified_context
+
+application.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db=SQLAlchemy(application)
+
+class Log(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    dersId = db.Column(db.String(6), unique=True, nullable=False)
+    ip = db.Column(db.String(16), unique=True, nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<DersID: %r, IP: %r, Date: %r>' % self.dersId, self.ip, self.date
+
+
+
+
 #Oturum classı, bu class sayesinde her sorgu sırasında tekrar okulun sistemine giriş yapmak yerine mevcut session'ı ve oturum nonun kullanılması sağlanır.
 class Oturum:
 
@@ -43,12 +60,12 @@ class Oturum:
             self.oturumNo=re.search(r'https:\/\/program\.etu\.edu\.tr\/DersProgrami\/\?oturumNo=(.*)', r.url).group(1)
             self.oturumAktif=True
             
-            print('Login session resumed.')
+            #print('Login session resumed.')
     
     #Ubs sistemine giriş yapılır
     def oturumGuncelle(self):
         req = urllib2.Request('https://ubs.etu.edu.tr/')
-        response = urllib2.urlopen(req)
+        response = urllib2.urlopen(req, context=context)
         the_page = response.read()
 
         viewstate=re.search(r'<input .* id="__VIEWSTATE".* value="(.*)".*\/>', the_page).group(1)
@@ -161,10 +178,11 @@ class Sube:
                 elif saat['DersKodu'] and saat['DersKodu']!="-":
                     self.Saatler.append(Saat(saat['Baslangic'], saat['Bitis'], saat['Gun'], saat['DersKoduList'], self.SubeNo, saat['DersKodu']))
 
-def programOlustur(derslistesi ,limit):
+def programOlustur(derslistesi ,limit, ipAdres):
     dersler=list()
     for dersno in derslistesi:
         dersler.append(Ders(dersno,0)) #0 tum subeler icin
+        db.session.add(Log(dersId=dersno, ip=ipAdres))
     return alternatifProgramlariHesapla(dersler, 0, [Plan()], limit)
 
 #Recursion ders programlarını hesaplama fonksiyonu
