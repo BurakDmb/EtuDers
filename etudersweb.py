@@ -31,7 +31,10 @@ def programhesapla():
     cakismalimit=cakisma
     if not cakisma:
         cakismalimit=2
-    ipAdres=request.remote_addr
+    
+    ipadres=request.headers['CF-Connecting-IP']
+    if not ipadres:
+        ipadres=request.remote_addr
     programlar=programOlustur(derslistesi,cakismalimit,ipAdres)
     #cakismaResult=cakismali(programlar,cakismalimit)
     return Response(json.dumps([sonuc.__dict__ for sonuc in programlar], default=str))
