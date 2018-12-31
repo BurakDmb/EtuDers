@@ -18,7 +18,10 @@ import ssl
 context = ssl._create_unverified_context()
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+loggingEnabled=True
 application.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+if not application.config['SQLALCHEMY_DATABASE_URI']:
+    loggingEnabled=False
 db=SQLAlchemy(application)
 
 class Log(db.Model):
@@ -182,9 +185,10 @@ def programOlustur(derslistesi ,limit, ipAdres):
     dersler=list()
     for dersno in derslistesi:
         dersler.append(Ders(dersno,0)) #0 tum subeler icin
-        db.session.add(Log(dersId=dersno, ip=ipAdres))
+        if loggingEnabled:
+            db.session.add(Log(dersId=dersno, ip=ipAdres))
     db.session.commit()    
-    return alternatifProgramlariHesapla(dersler, 0, [Plan()], limit)
+    return sorted(alternatifProgramlariHesapla(dersler, 0, [Plan()], limit), key=lambda r: r.cakismasayisi)
 
 
 #Recursion ders programlarını hesaplama fonksiyonu

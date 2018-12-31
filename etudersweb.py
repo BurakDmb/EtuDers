@@ -3,15 +3,15 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-from flask import Flask, render_template, request, jsonify, Response
+from flask import Flask, render_template, request, Response
 application = Flask(__name__)
 
 from etuders import Ders, programOlustur, cakismali, dersListesiAl
 import json
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
-from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
+
+
 
 
 
@@ -32,9 +32,7 @@ def programhesapla():
     if not cakisma:
         cakismalimit=2
     
-    ipadres=request.headers['CF-Connecting-IP']
-    if not ipadres:
-        ipadres=request.remote_addr
+    ipadres=request.headers.get('CF-Connecting-IP',request.remote_addr)
     programlar=programOlustur(derslistesi,cakismalimit,ipadres)
     #cakismaResult=cakismali(programlar,cakismalimit)
     return Response(json.dumps([sonuc.__dict__ for sonuc in programlar], default=str))
