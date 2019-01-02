@@ -4,7 +4,7 @@
 
 This is a timetable creator tool for students in [TOBB ETU](https://www.etu.edu.tr/en). This project has been deployed with heroku free plan.
 
-Here is some screenshots from the application:
+Here is some screenshots from the application(In Turkish):
 <p align="center">
   <img width="800" src="https://user-images.githubusercontent.com/15220477/50602859-a458a900-0ec9-11e9-8ea9-29d2cd6bbc13.png">
 </p>
