@@ -1,1 +1,1 @@
-web: gunicorn etuders:application
+web: gunicorn EtuDers:application

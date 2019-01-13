@@ -43,12 +43,12 @@ Lastly, execute this command:
 In windows:
 
 ```
-waitress-serve --listen=*:8000 etuders:application
+waitress-serve --listen=*:8000 EtuDers:application
 ```
 In unix:
 
 ```
-gunicorn --listen=*:8000 etuders:application
+gunicorn --listen=*:8000 EtuDers:application
 ```
 
 You can access your website in `127.0.0.1:8000`
