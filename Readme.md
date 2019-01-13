@@ -43,12 +43,12 @@ Lastly, execute this command:
 In windows:
 
 ```
-waitress-serve --listen=*:8000 wsgi:application
+waitress-serve --listen=*:8000 etuders:application
 ```
 In unix:
 
 ```
-gunicorn --listen=*:8000 wsgi:application
+gunicorn --listen=*:8000 etuders:application
 ```
 
 You can access your website in `127.0.0.1:8000`

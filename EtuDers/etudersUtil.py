@@ -1,31 +1,124 @@
 # -*- coding: utf-8 -*-
-"""This is the main module of the app EtuDers, it has functions to calculate alternative timetables."""
-
+"""This is the class definition module for EtuDers"""
+import os
 
 import ssl
-import os
 import json
-import re
-from copy import deepcopy
-from datetime import datetime
-import urllib3
-import urllib2
 import requests
+import re
+import urllib2
+import urllib3
 
-from etudersDB import Db, LoggingEnabled, Log
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+from datetime import datetime
+
+from etudersweb import application
+from etudersDB import getDb, Ogrenci, DersKayit, DersBilgi
+
 
 urllib3.disable_warnings()
 Context = ssl._create_unverified_context()
 Basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-# Oturum classı, bu class sayesinde her sorgu sırasında tekrar okulun sistemine giriş yapmak yerine mevcut session'ı
-# ve oturum nonun kullanılması sağlanır.
-class Oturum:
 
+# Okulun sitesinden ders programları listesini elde eder, bunu yaparken oturum noyu kullanır.
+def dersListesiAl():
+    params = dict(
+        dil='tr',
+        oturumNo=oturum.getOturumNo()
+    )
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"
+    }
+    dersListUrl = 'https://program.etu.edu.tr/DersProgrami/api/ders/getlist/'
+    dersListesi = requests.get(
+        url=dersListUrl, params=params, headers=headers).json()
+    return dersListesi
+
+def dersBilgisiAl(dersid, subeno):
+    params = dict(
+        dil='tr',
+        oturumNo=oturum.getOturumNo()
+    )
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+                "accept": "application/json, text/plain, */*", "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"}
+    dersUrl = 'https://program.etu.edu.tr/DersProgrami/api/dersprogramplan/dersProgram/' + \
+        str(dersid)+'/'+str(subeno)
+    ders = requests.get(url=dersUrl, params=params, headers=headers).json()
+    return ders
+
+def dersAdiAl(dersid):
+    params = dict(
+        dil='tr',
+        oturumNo=oturum.getOturumNo()
+    )
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+                "accept": "application/json, text/plain, */*", "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"}
+    dersAdiUrl = 'https://program.etu.edu.tr/DersProgrami/api/ders/get/' + \
+            str(dersid)
+    dersadi = requests.get(
+            url=dersAdiUrl, params=params, headers=headers).json()
+    return dersadi
+
+def subeListesiAl(dersid, subeno):
+    params = dict(
+        dil='tr',
+        oturumNo=oturum.getOturumNo()
+    )
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"
+    }
+    subeListesiUrl = 'https://program.etu.edu.tr/DersProgrami/api/sube/ogrencilist/' + \
+        str(dersid)+'/'+str(subeno)
+    
+    subeListesi = requests.get(
+        url=subeListesiUrl, params=params, headers=headers).json()
+    return subeListesi
+
+def fetchAndUpdateDB():
+    getDb().create_all()
+    dersListesi=dersListesiAl()
+    for dersno in dersListesi:
+        dersBilgisi=dersAdiAl(dersno)
+        checkDersRecordExist(dersBilgisi)
+        subeListesi=subeListesiAl(dersno, 0)
+        for subeBilgisi in subeListesi:
+            for ogrenciBilgisi in subeBilgisi['Ogrenci']:
+                checkOgrenciRecordExist(ogrenciBilgisi)
+                addRowIntoDersKayit(ogrenciBilgisi['ogrenciNo'], dersno, subeBilgisi['SubeNo'])
+
+def checkDersRecordExist(dersBilgisi):
+    if getDb().session.query(DersBilgi.dersId).filter_by(name=dersBilgisi['DersID']).scalar() is None:
+        getDb().session.add(DersBilgi(dersId=dersBilgisi['DersID'], 
+            dersAdi=dersBilgisi['DersAdi'], 
+            dersKodu=dersBilgisi['DersKodu'], 
+            oKodu=dersBilgisi['OptikKodu'], 
+            kisaAdi=dersBilgisi['DersKisaAdi']))
+        getDb().session.commit()
+
+def checkOgrenciRecordExist(ogrenciBilgisi):
+    if getDb().session.query(Ogrenci.ogrenciNo).filter_by(name=ogrenciBilgisi['OgrenciNo']).scalar() is None:
+        getDb().session.add(Ogrenci(ogrenciNo=ogrenciBilgisi['OgrenciNo'], 
+            ad=ogrenciBilgisi['Ad'], 
+            soyad=ogrenciBilgisi['Soyad'], 
+            birimAdi=ogrenciBilgisi['BirimAdi'], 
+            programAdi=ogrenciBilgisi['ProgramAdi'], 
+            sinif=ogrenciBilgisi['Sinif'], 
+            mail=ogrenciBilgisi['Mail']))
+        getDb().session.commit()
+
+def addRowIntoDersKayit(ogrenciNo, dersNo, subeNo):
+    getDb().session.add(
+        DersKayit(ogrNo=ogrenciNo, 
+            dersId=dersNo, 
+            subeNo=subeNo))
+    getDb().session.commit()
+
+class Oturum:
     def __init__(self):
         requests.Session().close()
         self.session = requests.Session()
@@ -109,34 +202,18 @@ class Oturum:
                   p.status_code+", headers: "+p.headers)
 
         self.oturumAktif = False
-
-
-oturum = Oturum()
-
-
+oturum=Oturum()
 class Ders:
     def __init__(self, dersid, subeno):
-        params = dict(
-            dil='tr',
-            oturumNo=oturum.getOturumNo()
-        )
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
-                   "accept": "application/json, text/plain, */*", "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"}
-        dersUrl = 'https://program.etu.edu.tr/DersProgrami/api/dersprogramplan/dersProgram/' + \
-            str(dersid)+'/'+str(subeno)
-        dersAdiUrl = 'https://program.etu.edu.tr/DersProgrami/api/ders/get/' + \
-            str(dersid)
         # Okulun sitesinden ders program ve ders bilgisi sayfalarından ilgili dersin bilgisini çeker.
-        ders = requests.get(url=dersUrl, params=params, headers=headers).json()
-        dersadi = requests.get(
-            url=dersAdiUrl, params=params, headers=headers).json()
+        ders = dersBilgisiAl(dersid, 0)
+        dersadi = dersAdiAl(dersid)
         self.derskodu = dersadi['DersKodu']
         self.dersAdi = dersadi['DersAdi']
         self.Subeler = list()
         for subeler in ders:
             self.Subeler.append(Sube(
                 subeler['SubeNo'], subeler['OgretimUyesi'], subeler['DersProgramPlan'], self.derskodu))
-
 
 class Plan:
     def __init__(self):
@@ -166,7 +243,6 @@ class Plan:
                     if len(self.grid[i][j]) > 1:
                         self.cakismasayisi = self.cakismasayisi+1
 
-
 class Saat:
     def __init__(self, bas, bit, gun, yer, subeno, dersno):
         self.bas = bas
@@ -178,7 +254,6 @@ class Saat:
 
     def __repr__(self):
         return self.dersno+"-"+str(self.subeno)
-
 
 class Sube:
     def __init__(self, subeno, hoca, saatler, derskodu):
@@ -195,57 +270,3 @@ class Sube:
                 elif saat['DersKodu'] and saat['DersKodu'] != "-":
                     self.Saatler.append(Saat(
                         saat['Baslangic'], saat['Bitis'], saat['Gun'], saat['DersKoduList'], self.SubeNo, saat['DersKodu']))
-
-
-def programOlustur(derslistesi, limit, ipAdres):
-    dersler = list()
-    for dersno in derslistesi:
-        dersler.append(Ders(dersno, 0))  # 0 tum subeler icin
-    if LoggingEnabled:
-        Db.session.add(Log(dersId=', '.join(map(str, derslistesi)) , ip=ipAdres))
-        Db.session.commit()
-    return sorted(alternatifProgramlariHesapla(dersler, 0, [Plan()], limit), key=lambda r: r.cakismasayisi)
-
-
-# Recursion ders programlarını hesaplama fonksiyonu
-def alternatifProgramlariHesapla(dersListesi, mevcutDersIndex, mevcutProgram, limit):
-    if len(dersListesi) == mevcutDersIndex:
-        return mevcutProgram
-    tmpList = list()
-    for i in range(len(mevcutProgram)):
-        for j in range(len(dersListesi[mevcutDersIndex].Subeler)):
-            tmpPlan = deepcopy(mevcutProgram[i])
-            tmpPlan.subeEkle(dersListesi[mevcutDersIndex].Subeler[j])
-            if tmpPlan.cakismasayisi <= limit:  # eğer hesaplanan ders programının cakışma sayısı limiti aştı ise bunu listeye eklemiyoruz ve listeyi birazcık optimize etmiş oluyoruz, gereksiz programları hesaplamayarak
-                tmpList.append(tmpPlan)
-    mevcutProgram = tmpList
-    return alternatifProgramlariHesapla(dersListesi, mevcutDersIndex+1, mevcutProgram, limit)
-
-# Eski fonksiyon, artık kullanılmıyor
-
-
-def cakismali(program, limit):
-    uygunOlanlar = list()
-    for a in range(limit+1):
-        for j in range(len(program)):
-            if program[j].cakismasayisi == a:
-                uygunOlanlar.append(program[j])
-    return uygunOlanlar
-
-# Okulun sitesinden ders programları listesini elde eder, bunu yaparken oturum noyu kullanır.
-
-
-def dersListesiAl():
-    params = dict(
-        dil='tr',
-        oturumNo=oturum.getOturumNo()
-    )
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
-        "accept": "application/json, text/plain, */*",
-        "accept-language": "tr-TR,tr;q = 0.9,en-US;q = 0.8,en;q = 0.7"
-    }
-    dersListUrl = 'https://program.etu.edu.tr/DersProgrami/api/ders/getlist/'
-    dersListesi = requests.get(
-        url=dersListUrl, params=params, headers=headers).json()
-    return dersListesi
