@@ -3,7 +3,7 @@
 import os
 from etudersweb import application
 
-from flask import g
+
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
@@ -13,61 +13,55 @@ application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 if not application.config['SQLALCHEMY_DATABASE_URI']:
     LoggingEnabled = False
 
-def getDb():
-    with application.app_context():
-        if 'Db' not in g:
-            g.Db = SQLAlchemy(application)
-        return g.Db
 
-class Log(getDb().Model):
-    id = getDb().Column(getDb().Integer, primary_key=True)
-    dersId = getDb().Column(getDb().String(6), nullable=False)
-    ip = getDb().Column(getDb().String(16), nullable=False)
-    date = getDb().Column(getDb().DateTime, nullable=False, default=datetime.utcnow)
+db=SQLAlchemy(application)
+class Log(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    dersId = db.Column(db.String(6), nullable=False)
+    ip = db.Column(db.String(16), nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return '<DersID: %r, IP: %r, Date: %r>' % self.dersId, self.ip, self.date
 
-class OgrenciLog(getDb().Model):
-    id = getDb().Column(getDb().Integer, primary_key=True)
-    ogrenciNo = getDb().Column(getDb().String(6), nullable=False)
-    ip = getDb().Column(getDb().String(16), nullable=False)
-    date = getDb().Column(getDb().DateTime, nullable=False, default=datetime.utcnow)
+class OgrenciLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ogrenciNo = db.Column(db.String(6), nullable=False)
+    ip = db.Column(db.String(16), nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return '<OgrenciNo: %r, IP: %r, Date: %r>' % self.ogrenciNo, self.ip, self.date
 
-class Ogrenci(getDb().Model):
-    id = getDb().Column(getDb().Integer, primary_key=True)
-    ogrenciNo = getDb().Column(getDb().Text, nullable=False)
-    ad = getDb().Column(getDb().Text)
-    soyad = getDb().Column(getDb().Text)
-    birimAdi = getDb().Column(getDb().Text)
-    programAdi = getDb().Column(getDb().Text)
-    sinif = getDb().Column(getDb().Text)
-    mail = getDb().Column(getDb().Text)
+class Ogrenci(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ogrenciNo = db.Column(db.Text, nullable=False)
+    ad = db.Column(db.Text)
+    soyad = db.Column(db.Text)
+    birimAdi = db.Column(db.Text)
+    programAdi = db.Column(db.Text)
+    sinif = db.Column(db.Text)
+    mail = db.Column(db.Text)
 
     def __repr__(self):
             return '<OgrenciNo: %r, Ad: %r,  Soyad: %r,  BirimAdi: %r,  ProgramAdi: %r,  Sinif: %r,  Mail: %r>' % self.ogrenciNo, self.ad, self.soyad, self.birimAdi, self.programAdi, self. sinif, self.mail
 
     
-class DersBilgi(getDb().Model):
-    id = getDb().Column(getDb().Integer, primary_key=True)
-    dersId = getDb().Column(getDb().Text, nullable=False)
-    dersAdi = getDb().Column(getDb().Text)
-    dersKodu = getDb().Column(getDb().Text)
-    oKodu = getDb().Column(getDb().Text)
-    kisaAdi = getDb().Column(getDb().Text)
+class DersBilgi(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    dersId = db.Column(db.Text, nullable=False)
+    dersAdi = db.Column(db.Text)
+    dersKodu = db.Column(db.Text)
+    oKodu = db.Column(db.Text)
+    kisaAdi = db.Column(db.Text)
     def __repr__(self):
         return '<DersId: %r, DersAdi: %r,  DersKodu: %r,  DersOKodu: %r,  DersKisaAdi: %r>' % self.dersId, self.dersAdi, self.dersKodu, self.oKodu, self.kisaAdi
 
-class DersKayit(getDb().Model):
-    id = getDb().Column(getDb().Integer, primary_key=True)
-    ogrNo = getDb().Column(getDb().Text, nullable=False)
-    dersId = getDb().Column(getDb().Text)
-    subeNo = getDb().Column(getDb().Text)
+class DersKayit(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ogrNo = db.Column(db.Text, nullable=False)
+    dersId = db.Column(db.Text)
+    subeNo = db.Column(db.Text)
     def __repr__(self):
         return '<OgrNo: %r, DersId: %r,  SubeNo: %r>' % self.ogrNo, self.dersId, self.subeNo
 
-
-    

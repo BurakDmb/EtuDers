@@ -12,8 +12,9 @@ import urllib3
 from datetime import datetime
 
 from etudersweb import application
-from etudersDB import getDb, Ogrenci, DersKayit, DersBilgi
+from etudersDB import db, Ogrenci, DersKayit, DersBilgi
 
+from sqlalchemy import cast, String
 
 urllib3.disable_warnings()
 Context = ssl._create_unverified_context()
@@ -80,43 +81,43 @@ def subeListesiAl(dersid, subeno):
     return subeListesi
 
 def fetchAndUpdateDB():
-    getDb().create_all()
+    db.create_all()
     dersListesi=dersListesiAl()
     for dersno in dersListesi:
-        dersBilgisi=dersAdiAl(dersno)
+        dersBilgisi=dersAdiAl(dersno['DersID'])
         checkDersRecordExist(dersBilgisi)
-        subeListesi=subeListesiAl(dersno, 0)
+        subeListesi=subeListesiAl(dersno['DersID'], 0)
         for subeBilgisi in subeListesi:
             for ogrenciBilgisi in subeBilgisi['Ogrenci']:
                 checkOgrenciRecordExist(ogrenciBilgisi)
-                addRowIntoDersKayit(ogrenciBilgisi['ogrenciNo'], dersno, subeBilgisi['SubeNo'])
+                addRowIntoDersKayit(ogrenciBilgisi['OgrenciNo'], dersno['DersID'], subeBilgisi['SubeNo'])
 
 def checkDersRecordExist(dersBilgisi):
-    if getDb().session.query(DersBilgi.dersId).filter_by(name=dersBilgisi['DersID']).scalar() is None:
-        getDb().session.add(DersBilgi(dersId=dersBilgisi['DersID'], 
+    if db.session.query(DersBilgi.dersId).filter_by(dersId=cast(dersBilgisi['DersID'], String)).scalar() is None:
+        db.session.add(DersBilgi(dersId=dersBilgisi['DersID'], 
             dersAdi=dersBilgisi['DersAdi'], 
             dersKodu=dersBilgisi['DersKodu'], 
             oKodu=dersBilgisi['OptikKodu'], 
             kisaAdi=dersBilgisi['DersKisaAdi']))
-        getDb().session.commit()
+        db.session.commit()
 
 def checkOgrenciRecordExist(ogrenciBilgisi):
-    if getDb().session.query(Ogrenci.ogrenciNo).filter_by(name=ogrenciBilgisi['OgrenciNo']).scalar() is None:
-        getDb().session.add(Ogrenci(ogrenciNo=ogrenciBilgisi['OgrenciNo'], 
+    if db.session.query(Ogrenci.ogrenciNo).filter_by(ogrenciNo=ogrenciBilgisi['OgrenciNo']).scalar() is None:
+        db.session.add(Ogrenci(ogrenciNo=ogrenciBilgisi['OgrenciNo'], 
             ad=ogrenciBilgisi['Ad'], 
             soyad=ogrenciBilgisi['Soyad'], 
             birimAdi=ogrenciBilgisi['BirimAdi'], 
             programAdi=ogrenciBilgisi['ProgramAdi'], 
             sinif=ogrenciBilgisi['Sinif'], 
             mail=ogrenciBilgisi['Mail']))
-        getDb().session.commit()
+        db.session.commit()
 
 def addRowIntoDersKayit(ogrenciNo, dersNo, subeNo):
-    getDb().session.add(
+    db.session.add(
         DersKayit(ogrNo=ogrenciNo, 
             dersId=dersNo, 
             subeNo=subeNo))
-    getDb().session.commit()
+    db.session.commit()
 
 class Oturum:
     def __init__(self):

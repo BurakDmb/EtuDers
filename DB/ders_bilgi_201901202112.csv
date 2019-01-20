@@ -1,0 +1,531 @@
+﻿"id","dersId","dersAdi","dersKodu","oKodu","kisaAdi"
+1,"26115","2015414",AİT 202,AİT 202/2005-1,Atatürk İlkeleri ve İnkılap Tarihi II
+2,"22784",Almanca I,ALM 001,ALM 001/2011-3,Almanca I
+3,"38174",Zorunlu ikinci yabancı dil,ALM 001Y,"2017-2018 / 3",""
+4,"39174","",ALM 002Y,"",""
+5,"31945","2504811",ALM 003,ALM 003/2011-3,Almanca III
+6,"31970",Almanca IV,ALM 004,ALM 004/2011-3,Almanca IV
+7,"30881",Arapça I,ARP 001,ARP 001/2012-2,Arapça I
+8,"26839",Arapça III,ARP 003,ARP 003/2013-3,Arapça III
+9,"30917",Arapça IV,ARP 004,ARP 004/2013-3,Arapça IV
+10,"30393",Java İle Programlama,BİL 012,BİL 012/2005-1,Java İle Programlama
+11,"31759",Veri İletişimi ve Bilgisayar Ağları,BİL 051,BİL 051/2007-2,Veri İletişimi ve Bilgisayar Ağları
+12,"31859",Sayısal Sistemler ve Bilgisayar Mimarisi,BİL 061,BİL 061/2005-1,Sayısal Sistemler ve Bilgisayar Mimarisi
+13,"21136",Bilişim Teknolojileri,BİL 101,BİL 101/2007-2,Bilişim Teknolojileri
+14,"21155","2016907",BİL 106,BİL 106/2010-2,Veritabanı Yönetimi
+15,"20907","2016768",BİL 113,BİL 113/2010-2,Bilgisayar Programlama I
+16,"21059",Bilişim Teknolojilerine Giriş ,BİL 121,BİL 121/2010-3,Bilişim Teknolojileri ve Veri Yönetimi
+17,"21208",Bilgisayar Bilimleri için Ayrık Matematik,BİL 132,BİL 132/2004-2,Bilgisayar Bilimleri için Ayrık Matematik
+18,"40281","",BİL 141,"",Bilgisayar Programlama I
+19,"40280","",BİL 142,"",Bilgisayar Programlama II
+20,"35804","5046282",BİL 211,"5046282",""
+21,"21025","4947148",BİL 214,BİL 214/2015-1,Sistem Programlama
+22,"20974","2015336",BİL 264L,BİL 264L/2004-2,Mantıksal Devre Tasarımı Laboratuvarı
+23,"27344",Algoritma Analizi,BİL 331,BİL 331/2006-1,Algoritma Analizi
+24,"21044",Biçimsel Diller ve Otomata,BİL 334,BİL 334/2006-2,Biçimsel Diller ve Otomata
+25,"40237","4947148",BİL 345,BİL 345/2018-1,Olasılık Teorisi
+26,"23779","",BİL 361,BİL 361/2013-3,Bilgisayar Mimarisi ve Organizasyonu
+27,"21029",Mikroişlemciler,BİL 362,BİL 362/2006-2,Mikroişlemciler
+28,"20983",Mikroişlemciler Laboratuvarı,BİL 362L,BİL 362L/2006-2,Mikroişlemciler Laboratuvarı
+29,"21416","2016811",BİL 395,BİL 395/2006-1,Mesleki İngilizce I (Programlama Dilleri)
+30,"26532",İnternet Güvenlik Protokolleri,BİL 448,BİL 448/2013-2,İnternet Güvenlik Protokolleri
+31,"23895",Veri İletişimi ve Bilgisayar Ağları,BİL 452,BİL 452/2007-2,Veri İletişimi ve Bilgisayar Ağları
+32,"21018","4737778",BİL 470,BİL 470/2014-2,Makine Öğrenme
+33,"22080",Yazılım Mühendisliği,BİL 481,BİL 481/2007-1,Yazılım Mühendisliği
+34,"21345",Serbest Araştırma Dersi I,BİL 490,BİL 490/2010-1,Serbest Araştırma Dersi I
+35,"35800",Bitirme Projesi,BİL 496,"2016813",""
+36,"26218",Sızma Testleri ve Güvenlik Denetimleri,BİL 524,BİL 524/2014-2,Sızma Testleri ve Güvenlik Denetimleri
+37,"31909",Bilişim Güvenliğinde Güncel Konular,BİL 529,BİL 529/2014-3,Bilişim Güvenliğinde Güncel Konular
+38,"25815",Algoritma Analizi,BİL 531,BİL 531/2005-2,Algoritma Analizi
+39,"31128",İnternet Güvenlik Protokolleri,BİL 548,BİL 548/2013-2,İnternet Güvenlik Protokolleri
+40,"26250",Yapay Öğrenme,BİL 570,BİL 570/2014-2,Yapay Öğrenme
+41,"26105",Yazılım Mühendisliği,BİL 582,BİL 582/2005-1,Yazılım Mühendisliği
+42,"21118","4520240",BİL 587,BİL 587/2014-1,Bilgisayarla Görü
+43,"35735",Seminer,BİL 597,"2015877",""
+44,"24206",Dönem Projesi,BİL 598,BİL 598/2006-2,Dönem Projesi
+45,"26111","",BİL 599,BİL 599/2006-1,Tez Çalışması
+46,"25532","5452009",BİL 697,BİL 697/2016-2,Doktora Semineri
+47,"22084","2016498",BİL 699,BİL 699/2009-1,Doktora Tez Çalışması
+48,"22122","2016550",BLT 307,BLT 307/2012-3,Animasyon I
+49,"29222","4520215",BLT 406,BLT 406/2015-2,Görsel Efekt Tasarım
+50,"24126",Biyokimya,BMM 102,BMM 102/2012-2,Biyokimya
+51,"32927",Biyomalzemeler,BMM 305,BMM 305/2013-2,Biyomalzemeler
+52,"26473",Biyomedikal Sinyaller ve Sistemler,BMM 307,BMM 307/2013-2,Biyomedikal Sinyaller ve Sistemler
+53,"26508",Doku Mühendisliği,BMM 309,BMM 309/2013-2,Doku Mühendisliği
+54,"6192","5345751",BMM 309L,"5345751",""
+55,"23967",Biyomekanik,BMM 311,BMM 311/2013-2,Biyomekanik
+56,"33986",Biyomalzeme ve Biyomekanik Laboratuvarı,BMM 311L,BMM 311L/2013-2,Biyomalzeme ve Biyomekanik Laboratuvarı
+57,"23969",Biyoteknoloji,BMM 430,BMM 430/2015-2,Biyoteknoloji
+58,"31268",Biyosistemlerde Kütle ve Enerji Transferi,BMM 445,BMM 445/2014-3,Biyosistemlerde Kütle ve Enerji Transferi
+59,"26813",Genetik Mühendisliği,BMM 481,BMM 481/2015-3,Genetik Mühendisliği
+60,"5378","",BMM 484,"3153086",""
+61,"30505",Bitirme Tasarım Projesi,BMM 498,BMM 498/2015-2,Bitirme Tasarım Projesi
+62,"6211","",BMM 513,"5430239",""
+63,"6213","",BMM 522,"5430241",""
+64,"6216","",BMM 551,"5430244",""
+65,"31711",Moleküler Farmakoloji ve Toksikoloji,BMM 582,BMM 582/2014-3,Moleküler Farmakoloji ve Toksikoloji
+66,"33171",Biyolojik Sistemlerde Taşınım Olayları,BMM 583,BMM 583/2015-2,Biyolojik Sistemlerde Taşınım Olayları
+67,"33103",Kimyasal Tepkime Mühendisliği ve Modelleme,BMM 584,BMM 584/2015-1,Kimyasal Tepkime Mühendisliği ve Modelleme
+68,"33104",Seminer,BMM 597,BMM 597/2014-3,Seminer
+69,"26755",Yüksek Lisans Tezi,BMM 599,BMM 599/2014-3,Yüksek Lisans Tezi
+70,"33127","5430758",BMM 697,BMM 697/2016-3,Doktora Semineri
+71,"26984",Doktora Tezi,BMM 699,BMM 699/2016-2,Doktora Tezi
+72,"32088","4337190",DYE 700,DYE 700/2013-3,Doktora Yeterlik Eğitimi
+73,"33784",Sinyaller ve Sistemler ,ELE 071,ELE 071/2013-2,Sinyaller ve Sistemler 
+74,"25972",Elektrik Mühendisleri için Olasılık Teorisi,ELE 073,ELE 073/2013-3,Elektrik Mühendisleri için Olasılık Teorisi
+75,"29705",Elektrik ve Elektronik Mühendisliğine Giriş,ELE 101,ELE 101/2013-2,Elektrik ve Elektronik Mühendisliğine Giriş
+76,"21682",Elektronik Devreler,ELE 224,ELE 224/2010-2,Elektronik Devreler
+77,"22208",Elektronik Devreler Laboratuvarı,ELE 224L,ELE 224L/2010-2,Elektronik Devreler Laboratuvarı
+78,"23435",Elektrik Mühendisleri için Olasılık Teorisi,ELE 273,ELE 273/2010-3,Elektrik Mühendisleri için Olasılık Teorisi
+79,"22241",Elektrik ve Elektroniğin Temelleri,ELE 297,ELE 297/2010-2,Elektrik ve Elektroniğin Temelleri
+80,"23542",Analog Elektronik Devreler,ELE 311,ELE 311/2010-2,Analog Elektronik Devreler
+81,"33313",Elektromanyetik Dalga Teorisi,ELE 331,ELE 331/2006-1,Elektromanyetik Dalga Teorisi
+82,"21708",Sinyaller ve Sistemler,ELE 371,ELE 371/2006-1,Sinyaller ve Sistemler
+83,"23550",Elektrik Mühendisleri için Sayısal Yöntemler,ELE 375,ELE 375/2010-2,Elektrik Mühendisleri için Sayısal Yöntemler
+84,"24463",Doğrusal Olmayan Sistemler,ELE 403,ELE 403/2007-2,Doğrusal Olmayan Sistemler
+85,"21671",Dijital Kontrol Sistemleri,ELE 404,ELE 404/2008-2,Dijital Kontrol Sistemleri
+86,"33322",Güneş Enerji Sistemleri,ELE 457,ELE 457/2014-3,Güneş Enerji Sistemleri
+87,"33324",Sayısal Haberleşme,ELE 464,ELE 464/2009-1,Sayısal Haberleşme
+88,"27750","2016038",ELE 483,ELE 483/2013-3,Elektrik  Piyasaları
+89,"26030",Elektromekanik Enerji Dönüşümü,ELE 489,ELE 489/2010-1,Elektromekanik Enerji Dönüşümü
+90,"22327",Bitirme Tasarım Projesi,ELE 495,ELE 495/2010-2,Bitirme Tasarım Projesi
+91,"21747",Serbest Araştırma Dersi I,ELE 498,ELE 498/2010-3,Serbest Araştırma Dersi I
+92,"21749",Serbest Araştırma Dersi II,ELE 499,ELE 499/2010-2,Serbest Araştırma Dersi II
+93,"29358",Doğrusal Olmayan Sistemler,ELE 503,ELE 503/2005-2,Doğrusal Olmayan Sistemler
+94,"25973",Dijital Kontrol Sistemleri,ELE 504,ELE 504/2008-2,Dijital Kontrol Sistemleri
+95,"25821",Optik,ELE 551,ELE 551/2005-2,Optik
+96,"33794",Güneş Enerji Sistemleri,ELE 557,ELE 557/2014-3,Güneş Enerji Sistemleri
+97,"32284",Sayısal Haberleşme,ELE 564,ELE 564/2009-1,Sayısal Haberleşme
+98,"26007",İletişim Ağı Eniyilemesi,ELE 569,ELE 569/2011-2,İletişim Ağı Eniyilemesi
+99,"25570",Seminer,ELE 597,ELE 597/2006-2,Seminer
+100,"23335","2015451",ELE 598,ELE 598/2007-1,Dönem Projesi
+101,"29446",Yüksek Lisans Tezi,ELE 599,ELE 599/2006-2,Yüksek Lisans Tezi
+102,"25868",Doktora Semineri,ELE 697,ELE 697/2016-2,Doktora Semineri
+103,"22567",Doktora Tezi,ELE 699,ELE 699/2013-2,Doktora Tezi
+104,"31399",Üretim Sistemleri Planlama,END 007,END 007/2008-1,Üretim Sistemleri Planlama
+105,"24601",Olasılık ve İstatistik,END 014,END 014/2010-1,Olasılık ve İstatistik
+106,"34052","",END 020,END 020/2013-2,Mühendislik Ekonomisi
+107,"31187",Rassal Modeller,END 021,END 021/2011-3,Rassal Modeller
+108,"31190",Yöneylem Araştırması II,END 095,END 095/2008-1,Yöneylem Araştırması II
+109,"27831",Olasılık ve İstatistik I,END 213,END 213/2009-3,Olasılık ve İstatistik I
+110,"23917","2016389",END 214,END 214/2008-3,Olasılık ve İstatistik II
+111,"33391",Üretim Sistemleri Planlama,END 307,END 307/2007-1,Üretim Sistemleri Planlama
+112,"21857",Mühendislik Ekonomisi,END 320,END 320/2008-3,Mühendislik Ekonomisi
+113,"21500",Rassal Modeller,END 321,END 321/2010-2,Rassal Modeller
+114,"35824",Yöneylem Araştırması II,END 395,"2016906",""
+115,"21521",Lojistik,END 426,END 426/2009-1,Lojistik
+116,"27262",Bitirme Tasarım Projesi,END 497,END 497/2012-2,Bitirme Tasarım Projesi
+117,"22545",Serbest Araştırma Dersi,END 498,END 498/2010-2,Serbest Araştırma Dersi
+118,"26496",Tamsayılı Programlama,END 502,END 502/2010-2,Tamsayılı Programlama
+119,"26553",Sezgisel Arama Metodları,END 507,END 507/2011-2,Sezgisel Arama Metodları
+120,"24669",Seminer,END 597,END 597/2009-2,Seminer
+121,"23931",Dönem Projesi,END 598,END 598/2011-3,Dönem Projesi
+122,"24097",Yüksek Lisans Tezi,END 599,END 599/2008-2,Yüksek Lisans Tezi
+123,"26463",İleri Rassal Süreçler,END 651,END 651/2012-2,İleri Rassal Süreçler
+124,"26605",Doktora Semineri,END 697,END 697/2016-2,Doktora Semineri
+125,"24099",Doktora Tezi,END 699,END 699/2014-3,Doktora Tezi
+126,"24891",YAPISAL TASARIM,EÜT 110,EÜT 110/2013-2,YAPISAL TASARIM
+127,"22938","3588687",EÜT 122,EÜT 122/2013-2,Temel Tasarım II
+128,"30172",Bilgisayar Destekli Sunum Teknikleri,EÜT 215,EÜT 215/2013-3,Bilgisayar Destekli Sunum Teknikleri
+129,"23508",Endüstriyel Tasarım Tarihi I,EÜT 218,EÜT 218/2011-1,Endüstriyel Tasarım Tarihi I
+130,"33629",Modelaj Kil Çamur,EÜT 224,EÜT 224/2014-2,Modelaj Kil Çamur
+131,"25388",Bilgisayar Destekli Ürün Tasarımı II,EÜT 317A,EÜT 317A/2011-3,Bilgisayar Destekli Ürün Tasarımı II
+132,"30481",Endüstriyel Tasarım Tarihi II,EÜT 319,EÜT 319/2011-3,Endüstriyel Tasarım Tarihi II
+133,"33631",Endüstri Ürünleri Tasarımı Stüdyosu III,EÜT 321A,EÜT 321A/2011-3,Endüstri Ürünleri Tasarımı Stüdyosu III
+134,"33633",Ürün Dili ve Anlamı - Seçmeli,EÜT 323,EÜT 323/2012-1,Ürün Dili ve Anlamı - Seçmeli
+135,"30683",Tasarımda Kullanıcı Araştırmaları,EÜT 331,EÜT 331/2013-2,Tasarımda Kullanıcı Araştırmaları
+136,"25115",Moda Tasarımı,EÜT 378,EÜT 378/2016-2,Moda Tasarımı
+137,"29021",Mesleki Uygulamalar ,EÜT 408,EÜT 408/2014-2,Mesleki Uygulamalar 
+138,"4894","2040795",EÜT 422A,"2040795",""
+139,"30592",Akıllı Ürünler - Seçmeli,EÜT 427,EÜT 427/2013-3,Akıllı Ürünler - Seçmeli
+140,"26185",Fizik I,FİZ 101,FİZ 101/2004-1,Fizik I
+141,"23764","2015318",FİZ 101L,FİZ 101L/2004-1,Fizik I Laboratuvarı
+142,"22375",Fizik II,FİZ 102,FİZ 102/2004-2,Fizik II
+143,"30910","2015332",FİZ 102L,FİZ 102L/2004-2,Fizik II Laboratuvarı
+144,"26073",Fransızca I,FRA 001,FRA 001/2011-1,Fransızca I
+145,"26842",Fransızca III,FRA 003,FRA 003/2012-1,Fransızca III
+146,"22885",Fransızca IV,FRA 004,FRA 004/2012-2,Fransızca IV
+147,"25725","5345051",GİT 102,GİT 102/2015-3,Temel Tasarım II
+148,"33607","5345050",GİT 104,GİT 104/2015-3,Desen II
+149,"33608","4520213",GİT 106,GİT 106/2014-2,Görsel İletişim Tasarımına Giriş
+150,"25264","2016532",GİT 202,GİT 202/2010-1,Görsel İletişim Tasarım Stüdyosu II
+234,"35803","2463751",İKT 599,"2463751",""
+151,"22030","2017050",GİT 309,GİT 309/2010-1,"3D Modelleme"
+152,"35874","2017052",GİT 406,"2017052",""
+153,"30374","2017053",GİT 407,GİT 407/2011-1,Sinema Tarihi
+154,"22034","3588683",GİT 410,GİT 410/2013-2,PORTFOLYO TASARIMI VE SUNU TEKNİKLERİ
+155,"35876",Web Tasarım II,GİT 412,"4520211",""
+156,"30432","2016536",GRT 301,GRT 301/2010-1,Grafik Tasarımı I
+157,"28210","2016539",GRT 302,GRT 302/2010-2,Grafik Tasarım II
+158,"24864","2016537",GRT 303,GRT 303/2010-3,Masaüstü Yayıncılık
+159,"23499","2017047",GRT 305,GRT 305/2010-1,Tasarımda Fotoğraf
+160,"29247","2017048",GRT 307,GRT 307/2010-3,Grafik Tasarımı Tarihi
+161,"25317","2016548",GRT 404,GRT 404/2014-2,İletişim Etiği
+162,"23503","4520210",GRT 406,GRT 406/2014-2,Proje II
+163,"22913","4519529",GRT 409,GRT 409/2014-3,Proje I
+164,"23265","5008358",GUC 503,GUC 503/2015-2,Güvenlik Yönetişimi
+165,"32198","5009239",GUC 519,GUC 519/2015-1,İstihbarat ve Ulusal Güvenlik Stratejileri
+166,"32255","5123701",GUC 598,GUC 598/2016-2,Dönem Projesi
+167,"23268","5123702",GUC 599,GUC 599/2015-3,Yüksek Lisans Tezi
+168,"35721",Hukuk Teorisi,HUK 102,"2016942",""
+169,"31747",Medeni Hukuk II,HUK 104,HUK 104/2010-2,Medeni Hukuk II
+170,"22249",Anayasa Hukuku II,HUK 106,HUK 106/2010-2,Anayasa Hukuku II
+171,"22252",Legal English II,HUK 110,HUK 110/2010-3,Legal English II
+172,"33693",Roma Hukuku II,HUK 114,HUK 114/2010-2,Roma Hukuku II
+173,"25248",Hukuka Giriş,HUK 115,HUK 115/2010-1,Hukuka Giriş
+174,"31752",Genel Kamu Hukuku,HUK 116,HUK 116/2012-2,Genel Kamu Hukuku
+175,"31415","5446082",HUK 118,HUK 118/2016-3,International Human Rights Law
+176,"31445",İfa Engelleri ve Sözleşmeler Hukuku I,HUK 301,HUK 301/2011-1,İfa Engelleri ve Sözleşmeler Hukuku I
+177,"30820",Eşya Hukuku I,HUK 303,HUK 303/2011-1,Eşya Hukuku I
+178,"29177",Ticaret Hukuku II,HUK 305,HUK 305/2011-1,Ticaret Hukuku II
+179,"30822",Medeni Usul Hukuku I,HUK 307,HUK 307/2011-3,Medeni Usul Hukuku I
+180,"29180",İdari Yargı,HUK 309,HUK 309/2011-1,İdari Yargı
+181,"35062","5446088",HUK 313,HUK 313/2017-1,Law of European Union
+182,"35894",American Contract Law,HUK 325,"2016979",""
+183,"32004","2016697",HUK 329,HUK 329/2016-1,Hukuk Etiği1
+184,"35909",Modern Siyasal İdeolojiler,HUK 345,"2505979",""
+185,"26093",Hukuk ve Edebiyat,HUK 358,HUK 358/2016-2,Hukuk ve Edebiyat
+186,"31802",Anayasa Mahkemesine Bireysel Başvuru,HUK 360,HUK 360/2016-2,Anayasa Mahkemesine Bireysel Başvuru
+187,"30853",Miras Hukuku,HUK 402,HUK 402/2012-2,Miras Hukuku
+188,"33720",Ceza Usul Hukuku II,HUK 404,HUK 404/2012-2,Ceza Usul Hukuku II
+189,"33721","2016974",HUK 406,HUK 406/2012-2,Hukuk Metodolojisi
+190,"31475",Uluslararası Özel Hukuk,HUK 408,HUK 408/2011-2,Uluslararası Özel Hukuk
+191,"23129",Enerji  Hukuku,HUK 432,HUK 432/2013-3,Enerji  Hukuku
+192,"31502",Adli Tıp,HUK 435,HUK 435/2012-2,Adli Tıp
+193,"35727",Ceza Muhakemesi Hukukunda Kanun Yolları,HUK 443,"47740912",""
+194,"30905",Alternatif Uyuşmazlık Çözüm Yolları,HUK 446,HUK 446/2013-1,Alternatif Uyuşmazlık Çözüm Yolları
+195,"35728",Vatandaşlık ve Yabancılar Hukuku,HUK 450,"47740913",""
+196,"32054",İtalyanca I,ITA 001,ITA 001/2011-3,İtalyanca I
+197,"32160",İtalyanca IV,ITA 004,ITA 004/2013-2,İtalyanca IV
+198,"22156","3510915",İÇT 102,İÇT 102/2013-2,Temel Tasarım II
+199,"30627","3510251",İÇT 104,İÇT 104/2013-2,Teknik Çizim II
+200,"29593",Mekan Kültürü ,İÇT 112,İÇT 112/2014-2,Mekan Kültürü 
+201,"23611","2041051",İÇT 201A,İÇT 201A/2011-3,Mekan Tasarımı Stüdyosu I
+202,"30632","2041055",İÇT 202A,İÇT 202A/2011-1,Mekan Tasarımı Stüdyosu II
+203,"25469","2041057",İÇT 301A,İÇT 301A/2011-3,Mekan Tasarımı Stüdyosu III
+204,"25962","2041063",İÇT 302A,İÇT 302A/2011-2,Mekan Tasarımı Stüdyosu IV
+205,"23013","2041058",İÇT 303A,İÇT 303A/2011-3,Detay Stüdyosu
+206,"35883",İleri Bilgisayar Uygulamaları,İÇT 305A,"2041061",""
+207,"33678",Çevre Psikolojisi,İÇT 307A,İÇT 307A/2011-3,Çevre Psikolojisi
+208,"33683",Mobilya Tarihi - Seçmeli,İÇT 320,İÇT 320/2011-3,Mobilya Tarihi - Seçmeli
+209,"29115","2041066",İÇT 401A,İÇT 401A/2011-3,Mekan Tasarımı Stüdyosu V
+210,"25189","2041067",İÇT 402A,İÇT 402A/2011-2,Mekan Tasarımı Stüdyosu VI
+211,"31853","3510877",İÇT 404,İÇT 404/2013-2,"Kesiş, Metraj ve Meslek Bilgisi"
+212,"30668",Özelleşmiş Tasarım Stüdyosu II - Seçmeli,İÇT 408,İÇT 408/2013-2,Özelleşmiş Tasarım Stüdyosu II - Seçmeli
+213,"31271",İngiliz Edebiyatına Genel Bakış II,İDE 102,İDE 102/2011-2,İngiliz Edebiyatına Genel Bakış II
+214,"31307",İngilizce Konuşma ve İletişim Becerileri,İDE 104,İDE 104/2011-2,İngilizce Konuşma ve İletişim Becerileri
+215,"26517",Klasik Mitoloji,İDE 108,İDE 108/2011-2,Klasik Mitoloji
+216,"25222",Dilbilimine Giriş,İDE 210,İDE 210/2013-3,Dilbilimine Giriş
+217,"26651","18. Yüzyıl İngiliz Edebiyatı",İDE 214,İDE 214/2014-3,"18. Yüzyıl İngiliz Edebiyatı"
+218,"26820",Shakespeare I,İDE 219,İDE 219/2013-2,Shakespeare I
+219,"31590",Postmodern ve Postkolonyal Britanya Romanı,İDE 318,İDE 318/2014-2,Postmodern ve Postkolonyal Britanya Romanı
+220,"24158",Edebiyat Kuramı ve Eleştirisi II,İDE 402,İDE 402/2014-2,Edebiyat Kuramı ve Eleştirisi II
+221,"27698",Ekonomiye Giriş,İKT 105,İKT 105/2015-3,Ekonomiye Giriş
+222,"27269","5177203",İKT 106,İKT 106/2015-2,Uluslararası İktisat
+223,"30022",Ekonomik Analiz ve Uygulamalar,İKT 110,İKT 110/2016-2,Ekonomik Analiz ve Uygulamalar
+224,"28164",Uluslararası Ekonomi I,İKT 311,İKT 311/2006-1,Uluslararası Ekonomi I
+225,"29072",Para Teorisi ve Politikası,İKT 335,İKT 335/2006-1,Para Teorisi ve Politikası
+226,"29161",Ekonometri I,İKT 351,İKT 351/2006-1,Ekonometri I
+227,"29164",Endüstriyel Organizasyon,İKT 395,İKT 395/2010-1,Endüstriyel Organizasyon
+228,"33435",Ekonomik Gelişmenin Temelleri,İKT 411,İKT 411/2007-1,Ekonomik Gelişmenin Temelleri
+229,"40329","",İKT 426,İKT 426/2018-2,Bilgi Ekonomisi ve Mekanizma Tasarımı
+230,"22672",Uygulamalı Ekonometri: Zaman Serisi Analizi - Seçmeli,İKT 451,İKT 451/2015-1,Uygulamalı Ekonometri: Zaman Serisi Analizi - Seçmeli
+231,"24454",Uygulamalı Ekonometri: Mikroekonometri - Seçmeli,İKT 452,İKT 452/2015-2,Uygulamalı Ekonometri: Mikroekonometri - Seçmeli
+232,"28518",Ekonomik Düşünceler Tarihi,İKT 472,İKT 472/2007-2,Ekonomik Düşünceler Tarihi
+233,"28450",Serbest Araştırma Dersi - Seçmeli,İKT 499,İKT 499/2012-2,Serbest Araştırma Dersi - Seçmeli
+235,"33918","5722983",İMİ 101,İMİ 101/2016-3,İktisadi ve İdari Bilimler Fakültesi için Özel Amaçlı Mesleki İngilizce Dersi
+236,"26460","2016931",İNG 001,İNG 001/2010-3,İngilizce I
+237,"32297","184",İNG 001U,İNG 001U/2014-3,İngilizce I
+238,"23690","2016923",İNG 002,İNG 002/2010-3,İngilizce II
+239,"32076","185",İNG 002U,İNG 002U/2014-3,İngilizce II
+240,"26146","2016924",İNG 003,İNG 003/2010-3,İngilizce Yazma Becerileri
+241,"32700","186",İNG 003U,İNG 003U/2014-3,İngilizce III
+242,"32729","2016926",İNG 004,İNG 004/2010-1,İngilizce Sunum Teknikleri
+243,"33929","187",İNG 004U,İNG 004U/2014-3,İngilizce IV
+244,"26906","180",İNG 101U,İNG 101U/2014-3,İngilizce I
+245,"26349","181",İNG 102U,İNG 102U/2014-3,İngilizce II
+246,"30249","182",İNG 201U,İNG 201U/2014-3,İngilizce III
+247,"26392","183",İNG 202U,İNG 202U/2014-3,İngilizce IV
+248,"33019",İspanyolca I,İSP 001,İSP 001/2011-3,İspanyolca I
+249,"38172",Zorunlu ikinci yabancı dil,İSP 001Y,"2017-2018 / 3",""
+250,"39175","",İSP 002Y,"",""
+251,"31300","3154539",İSP 003,İSP 003/2012-3,İspanyolca III
+252,"24424",İspanyolca IV,İSP 004,İSP 004/2013-2,İspanyolca IV
+253,"21986",Yönetime Giriş,İŞL 112,ISL 112/2005-3,Yönetime Giriş
+254,"28534",İşletme Yönetimine Giriş,İŞL 113,ISL 113/2006-1,İşletme Yönetimine Giriş
+255,"22801",Örgüt Kuramı,İŞL 311,ISL 311/2006-1,Örgüt Kuramı
+256,"35792","Bilim, Etik ve İnsan",İŞL 338,"47747449",""
+257,"24541",Üretim İşlemler Yönetimi,İŞL 343,ISL 343/2010-2,Üretim İşlemler Yönetimi
+258,"28549",Maliyet Muhasebesi,İŞL 351,ISL 351/2006-1,Maliyet Muhasebesi
+259,"29005",Muhasebe ve Maliyet Muhasebesi,İŞL 353,ISL 353/2007-1,Muhasebe ve Maliyet Muhasebesi
+260,"24783",Yönetim Muhasebesi,İŞL 354,ISL 354/2012-2,Yönetim Muhasebesi
+261,"29405",Finansal Yönetim,İŞL 361,ISL 361/2006-1,Finansal Yönetim
+262,"21655",Yönetim Bilgi Sistemleri,İŞL 381,ISL 381/2006-1,Yönetim Bilgi Sistemleri
+263,"28055",Stratejik Yönetim,İŞL 406,ISL 406/2011-2,Stratejik Yönetim
+264,"23068",Örgütsel Davranış,İŞL 416,ISL 416/2010-3,Örgütsel Davranış
+265,"40230","5589411",İŞL 419,"",İŞL 419
+266,"28059",Pazarlama Alanında Seçilmiş Konular,İŞL 434,ISL 434/2009-1,Pazarlama Alanında Seçilmiş Konular
+267,"40328","2017271",İŞL 437,ISL 437/2018-2,Pazarlama Kuramı
+268,"28149",Kurumsal Kaynak Planlama (ERP),İŞL 448,ISL 448/2011-2,Kurumsal Kaynak Planlama (ERP)
+269,"28151",Türk Muhasebe ve Vergi Sistemi,İŞL 454,ISL 454/2010-2,Türk Muhasebe ve Vergi Sistemi
+270,"23075",Yatırım Analizi ve Portföy Yönetimi,İŞL 462,ISL 462/2007-2,Yatırım Analizi ve Portföy Yönetimi
+271,"21947","2016134",İŞL 514,ISL 514/2007-3,Stratejik Yönetim
+272,"27307","2016150",İŞL 524,ISL 524/2007-3,Müzakerecilik Teknikleri ve İhtilafların Çözümü
+273,"23321","2016142",İŞL 534,ISL 534/2007-3,Satış Yönetimi
+274,"23451","2017287",İŞL 542,ISL 542/2010-2,Proje Yönetimi
+275,"29522","5511735",İŞL 559,ISL 559/2016-2,Kurumsal Yönetim
+276,"21306","2461153",İŞL 560,ISL 560/2014-1,Para ve Sermaye Piyasaları Uygulamaları
+277,"21366","2016130",İŞL 562,ISL 562/2007-3,Finansal Analiz
+278,"33284","2016382",İŞL 565,ISL 565/2008-2,İşletmeciler için Makro İktisat
+279,"23480","2017289",İŞL 569,ISL 569/2010-2,Finansta Güncel Konular
+280,"22147","2016137",İŞL 591,ISL 591/2008-3,Dönem Projesi
+281,"21659","2016132",İŞL 592,ISL 592/2008-3,Seminer
+282,"22004","2016133",İŞL 593,ISL 593/2008-3,Yüksek Lisans Tezi
+283,"32809",Japonca I,JAP 001,JAP 001/2012-2,Japonca I
+284,"23800",Japonca IV,JAP 004,JAP 004/2014-2,Japonca IV
+285,"25788",Genel Kimya,KİM 101,KİM 101/2004-1,Genel Kimya
+286,"32115",Genel Kimya Laboratuvarı,KİM 101L,KİM 101L/2004-2,Genel Kimya Laboratuvarı
+287,"21404",Bilgisayar Destekli Teknik Resim I,MAK 101,MAK 101/2004-2,Bilgisayar Destekli Teknik Resim I
+288,"28303",Statik,MAK 104,MAK 104/2004-2,Statik
+289,"28307",Termodinamik I,MAK 201,MAK 201/2005-1,Termodinamik I
+290,"27626",Mukavemet,MAK 206,MAK 206/2010-1,Mukavemet
+291,"27725",Malzeme Bilimi,MAK 217,MAK 217/2010-3,Malzeme Bilimi
+292,"27790",Malzeme Bilimi Laboratuvarı,MAK 217L,MAK 217L/2010-3,Malzeme Bilimi Laboratuvarı
+293,"28370",Sistem Dinamiği ve Kontrol Laboratuvarı,MAK 305L,MAK 305L/2007-1,Sistem Dinamiği ve Kontrol Laboratuvarı
+294,"33354",Tasarım ve Üretim,MAK 307,MAK 307/2011-3,Tasarım ve Üretim
+295,"21437",Akışkanlar Mekaniği,MAK 311,MAK 311/2010-2,Akışkanlar Mekaniği
+296,"21438",Akışkanlar Mekaniği Laboratuvarı,MAK 311L,MAK 311L/2010-2,Akışkanlar Mekaniği Laboratuvarı
+297,"23818",Makina Teorisi,MAK 316,MAK 316/2010-3,Makina Teorisi
+298,"28402",Makina Teorisi Laboratuvarı,MAK 316L,MAK 316L/2010-3,Makina Teorisi Laboratuvarı
+299,"21456",Mühendislik Sistemlerinin Modellenmesi ve Dinamiği,MAK 449,MAK 449/2007-2,Mühendislik Sistemlerinin Modellenmesi ve Dinamiği
+300,"24763",Mekatronik Sistem Tasarımı,MAK 452,MAK 452/2013-1,Mekatronik Sistem Tasarımı
+301,"24764",İçten Yanmalı Motorlar,MAK 471,MAK 471/2010-2,İçten Yanmalı Motorlar
+302,"21836",Enerji Sistemleri ve Çevre,MAK 486,MAK 486/2008-2,Enerji Yönetimi
+303,"27868","Isıtma, Havalandırma ve İklimlendirme",MAK 489,MAK 489/2007-2,"Isıtma, Havalandırma ve İklimlendirme"
+304,"3209","2015759",MAK 498,"2015759",""
+305,"21839",Serbest Araştırma Dersi,MAK 499,MAK 499/2010-2,Serbest Araştırma Dersi
+306,"32337",Mühendislikte Sayısal Yöntemler,MAK 502,MAK 502/2006-2,Mühendislikte Sayısal Yöntemler
+307,"25909",Makine Mühendisliğinde Eniyileme Teknikleri ve İleri Uygulamalar,MAK 511,MAK 511/2014-2,Makine Mühendisliğinde Eniyileme Teknikleri ve İleri Uygulamalar
+308,"22596",İleri Dinamik,MAK 540,MAK 540/2005-2,İleri Dinamik
+309,"23391",Omurganın Klinik Biyomekaniği,MAK 554,MAK 554/2013-3,Omurganın Klinik Biyomekaniği
+310,"32400",Sınır Tabaka Teorisi,MAK 572,MAK 572/2013-1,Sınır Tabaka Teorisi
+311,"25914",Seminer,MAK 597,MAK 597/2005-2,Seminer
+312,"32406",Dönem Projesi,MAK 598,MAK 598/2008-2,Dönem Projesi
+313,"26527",Yüksek Lisans Tezi,MAK 599,MAK 599/2006-2,Yüksek Lisans Tezi
+314,"30458",Doktora Semineri,MAK 697,MAK 697/2016-2,Doktora Semineri
+315,"26099",İleri Araştırma Konuları,MAK 698,MAK 698/2011-2,İleri Araştırma Konuları
+316,"31723",Doktora Tezi,MAK 699,MAK 699/2010-2,Doktora Tezi
+317,"24081","2015322",MAT 101,MAT 101/2004-2,Matematik I
+318,"22641","2015338",MAT 102,MAT 102/2004-3,Matematik II
+319,"30352",Genel Matematik I,MAT 103,MAT 103/2006-1,Genel Matematik I
+320,"26151",Genel Matematik II,MAT 104,MAT 104/2006-1,Genel Matematik II
+321,"25770","2015370",MAT 202,MAT 202/2005-3,Diferansiyel Denklemler
+322,"23177","2015539",MAT 309A,MAT 309A/2006-1,Cebir
+323,"35931","2016061",MAT 311,"2016061",""
+324,"28871","2016775",MAT 395,MAT 395/2009-2,Mesleki Ingilizce I
+325,"29675",Matematiksel Biyoloji-Seçmeli,MAT 446,MAT 446/2008-1,Matematiksel Biyoloji-Seçmeli
+326,"30445",Proje Dersi I,MAT 495,MAT 495/2009-1,Mesleki Ingilizce III
+327,"28128",Proje Dersi II,MAT 496,MAT 496/2010-2,Proje Dersi II
+328,"25183",Serbest Arastırma Dersi-Seçmeli,MAT 499,MAT 499/2015-3,Serbest Arastırma Dersi-Seçmeli
+329,"35404",Fark Denklemleri ve Kararlılık Teorisi,MAT 513,MAT 513/2017-1,Fark Denklemleri ve Kararlılık Teorisi
+330,"26743",Yaklaşımlar Teorisi,MAT 520,MAT 520/2012-2,Yaklaşımlar Teorisi
+331,"24232",Nümerik Analiz I,MAT 521,MAT 521/2009-1,Nümerik Analiz I
+332,"25299",Cebir I,MAT 535,MAT 535/2008-1,Cebir I
+333,"24258",Fonksiyonlar Teorisi I,MAT 537,MAT 537/2008-2,Fonksiyonlar Teorisi I
+334,"31512",Matematiksel Biyoloji,MAT 551,MAT 551/2015-1,Matematiksel Biyoloji
+335,"27066",Yüksek Lisans Tezi,MAT 599,MAT 599/2007-2,Yüksek Lisans Tezi
+336,"24104",Doktora Tez Çalışması,MAT 699,MAT 699/2013-2,Doktora Tez Çalışması
+337,"34014",Malzeme Bilimi ve Nanoteknoloji Mühendisliğine Giriş,MBN 101,MBN 101/2013-2,Malzeme Bilimi ve Nanoteknoloji Mühendisliğine Giriş
+338,"32444",Nano Bilim ve Mühendislikte Kimyasal Kuramlar,MBN 208,MBN 208/2014-1,Nano Bilim ve Mühendislikte Kimyasal Kuramlar
+339,"32997",Taşınım Mekanizmaları ,MBN 303,MBN 303/2014-2,Taşınım Mekanizmaları 
+340,"32999",Taşınım Mekanizmaları Laboratuarı,MBN 303L,MBN 303L/2015-2,Taşınım Mekanizmaları Laboratuarı
+341,"26677",Faz Geçişleri ve Diyagramları,MBN 305,MBN 305/2014-2,Faz Geçişleri ve Diyagramları
+342,"24303",Endüstriyel Malzemeler ve Üretim Süreçleri 2,MBN 307,MBN 307/2014-2,Endüstriyel Malzemeler ve Üretim Süreçleri 2
+343,"26806",Endüstriyel Malzemeler ve Üretim Süreçleri Laboratuarı 2,MBN 307L,MBN 307L/2014-2,Endüstriyel Malzemeler ve Üretim Süreçleri Laboratuarı 2
+344,"7367","47387168",MBN 312,"47387168",""
+345,"7457","47387769",MBN 320,"47387769",""
+346,"7366","47387139",MBN 497,"47387139",""
+347,"24024",Temel Tasarım Stüdyosu II,MİM 102,MİM 102/2012-3,Temel Tasarım Stüdyosu II
+348,"30556","Mimari Tasarım, Sunum ve Araştırma Yöntem ve Teknikleri II",MİM 106,MİM 106/2012-2,"Mimari Tasarım, Sunum ve Araştırma Yöntem ve Teknikleri II"
+349,"31594",Yapı Teknolojileri II,MİM 108,MİM 108/2012-2,Yapı Teknolojileri II
+350,"26702","Mimarlık Kültürü, Tarih ve Kuramları II",MİM 114,MİM 114/2014-1,"Mimarlık Kültürü, Tarih ve Kuramları II"
+351,"24028",Mimari Tasarım Stüdyosu III,MİM 201,MİM 201/2012-3,Mimari Tasarım Stüdyosu III
+352,"24029",Mimari Tasarım Stüdyosu IV,MİM 202,MİM 202/2013-2,Mimari Tasarım Stüdyosu IV
+353,"32347",Çağdaş Sanat I - Seçmeli,MİM 215,MİM 215/2016-1,Çağdaş Sanat I - Seçmeli
+354,"34000",Güncel Mimarlık Tartışmaları II - Seçmeli,MİM 225,MİM 225/2016-1,Güncel Mimarlık Tartışmaları II - Seçmeli
+355,"40252","",MİM 227,MİM 227/2019-1,MİM 227
+356,"27037",Mimari Tasarım Stüdyosu V,MİM 301,MİM 301/2013-3,Mimari Tasarım Stüdyosu V
+357,"32349",Mimari Tasarım Stüdyosu VI,MİM 302,MİM 302/2013-3,Mimari Tasarım Stüdyosu VI
+358,"26587",Yapı Teknolojileri V,MİM 307,MİM 307/2013-2,Yapı Teknolojileri V
+359,"24200","Mimarlık Kültürü, Tarih ve Kuramları V",MİM 313,MİM 313/2014-2,"Mimarlık Kültürü, Tarih ve Kuramları V"
+360,"4860","",MİM 321,"2040709",""
+361,"27051",Parametrik ve Algoritmik Tasarım - Seçmeli,MİM 330,MİM 330/2015-2,Parametrik ve Algoritmik Tasarım - Seçmeli
+362,"25268",Sanal Ortamda İşbirlikli Tasarım - Seçmeli,MİM 331,MİM 331/2016-3,Sanal Ortamda İşbirlikli Tasarım - Seçmeli
+363,"40251","",MİM 333,MİM 333/2020-2,MİM 333
+364,"32709","Mimari Tasarım, Sunum , Araştırma Yöntem ve Teknikleri V",MİM 350,MİM 350/2014-2,"Mimari Tasarım, Sunum , Araştırma Yöntem ve Teknikleri V"
+365,"25269",Mimari Tasarım Stüdyosu VII,MİM 401,MİM 401/2014-3,Mimari Tasarım Stüdyosu VII
+366,"24073",Mimari Tasarım Stüdyosu VIII,MİM 402,MİM 402/2015-2,Mimari Tasarım Stüdyosu VIII
+367,"24074","Mimarlık Kültürü, Tarih ve Kuramları VIII",MİM 404,MİM 404/2015-3,"Mimarlık Kültürü, Tarih ve Kuramları VIII"
+368,"27055","Mimari Tasarım, Sunum ve Araştırma Yöntem ve Teknikleri VIII",MİM 406,MİM 406/2015-2,"Mimari Tasarım, Sunum ve Araştırma Yöntem ve Teknikleri VIII"
+369,"26880",Yapı Teknolojileri VIII,MİM 408,MİM 408/2015-3,Yapı Teknolojileri VIII
+370,"25273",Sözlü İfade Becerileri Geliştirme - Seçmeli,MİM 420,MİM 420/2014-3,Sözlü İfade Becerileri Geliştirme - Seçmeli
+371,"39177","5212025",MİM 424,MİM 424/2017-3,Proje Yapım ve Yönetimi
+372,"33095",Architectural Theory,MİM 502,MIM 502/2013-2,Architectural Theory
+389,"25400","2015508",OEG 200,OEG 200/2005-2,Ortak Eğitim I
+373,"27109",Mimari Tasarım Sütüdyosu II,MİM 504,MIM 504/2016-1,Mimari Tasarım Sütüdyosu II
+374,"32671",Felsefe ve Kent,MİM 522,MIM 522/2015-1,Felsefe ve Kent
+375,"40277","",MİM 523,"",Mimarlık ve Medya
+376,"40278","",MİM 524,"",MİM 524
+377,"34038",Seminer,MİM 597,MIM 597/2014-3,Seminer
+378,"26857",Yüksek Lisans Tezi,MİM 599,MIM 599/2014-3,Yüksek Lisans Tezi
+379,"32825","5722982",MMİ 101,MMİ 101/2016-3,Mühendislik Fakültesi için ÖZel Amaçlı Mesleki İngilizce Dersi
+380,"32193",Nanoteknolojiye Giriş,MNT 501,MNT 501/2010-1,Nanoteknolojiye Giriş
+381,"32186",Hızlandırıcı Teknolojileri ve Uygulamaları,MNT 524,MNT 524/2013-1,Hızlandırıcı Teknolojileri ve Uygulamaları
+382,"33980","4015788",MNT 540,MNT 540/2013-2,Parçacık Dedektörleri ve Uygulamaları
+383,"26327",Seminer,MNT 597,MNT 597/2010-2,Seminer
+384,"25489",Yüksek Lisans Projesi,MNT 598,MNT 598/2012-2,Yüksek Lisans Projesi
+385,"26363",Yüksek Lisans Tezi,MNT 599,MNT 599/2010-2,Yüksek Lisans Tezi
+386,"33770",Doktora Semineri,MNT 697,MNT 697/2016-3,Doktora Semineri
+387,"29831",Doktora Tezi,MNT 699,MNT 699/2014-2,Doktora Tezi
+388,"32119","2015972",OEG 101,OEG 101/2007-2,Ortak Eğitime Giriş
+390,"29796","2015713",OEG 300,OEG 300/2006-3,Ortak Eğitim II
+391,"25700","2015714",OEG 400,OEG 400/2006-3,Ortak Eğitim III
+392,"25841","2015345",PSİ 102,PSİ 102/2004-2,Psikolojide Genel Konular
+393,"25425","4336866",PSİ 312,PSİ 312/2014-2,Kişilik Kuramları
+394,"31586","3588284",PSİ 320,PSİ 320/2014-2,Bilişsel Psikoloji
+395,"24170","4737769",PSİ 334,PSİ 334/2014-2,Gözlem ve Görüşme Teknikleri
+396,"36081","",PSİ 337,"2018-2019/1",Psikolojinin Tarihsel Gelişimi
+397,"31652","5045462",PSİ 341,PSİ 341/2015-2,Gelişim Psikolojisi: Yetişkinlik ve yaşlılık
+398,"39224","",PSİ 420,"",PSİ 420
+399,"32761","4336868",PSİ 431,PSİ 431/2016-2,Klinik Psikoloji II
+400,"27099","4336857",PSİ 434,PSİ 434/2016-2,Duygular
+401,"24171","4336847",PSİ 461,PSİ 461/2015-3,Bitirme Projesi I
+402,"31689","4336848",PSİ 462,PSİ 462/2016-3,Bitirme Projesi II
+403,"31118","5301213",PSİ 463,PSİ 463/2016-3,Psikolojide Güncel Konular
+404,"40228","",PSİ 472,"",PSİ 472
+405,"32463",Rusça I,RUS 001,RUS 001/2011-1,Rusça I
+406,"33059","3275336",RUS 004,RUS 004/2013-2,Rusça IV
+407,"29051","2015950",SAT 107,SAT 107/2008-2,Sanat Tarihi I 
+408,"33647","2015955",SAT 108,SAT 108/2007-3,Sanat Tarihi II - Seçmeli
+409,"33654","2016227",SAT 205,SAT 205/2008-1,Fotoğraf I 
+410,"35881",Portfoliyo Tasarımı ve Sunu Teknikleri,SAT 410,"2017031",""
+411,"32521",Bitirme Ödevi,SB 420,SB 420/2015-1,Bitirme Ödevi
+412,"32741",Bağımsız Çalışmalar,SB 499,SB 499/2015-2,Bağımsız Çalışmalar
+413,"35571","4824134",STY 404,STY 404/2017-1,Sanat Pazarı ve Müzayedecilik
+414,"35589","47387214",SUİ 102,SUİ 102/2017-1,Siyasi Tarih
+415,"35590","47387219",SUİ 106,SUİ 106/2017-1,Politik Ekonomiye Giriş
+416,"35591","47387221",SUİ 108,SUİ 108/2017-1,Sosyolojiye Giriş
+417,"35592","47387216",SUİ 114,SUİ 114/2017-1,Küresel Siyasete Giriş
+418,"35597","47387245",SUİ 302,SUİ 302/2017-1,Uluslararası Politik Ekonomi
+419,"7379","47387189",SUİ 310,"47387189",""
+420,"7392","47387203",SUİ 319,"47387203",""
+421,"7414","47387225",SUİ 324,"47387225",""
+422,"7418","47387229",SUİ 325,"47387229",""
+423,"7448","47387259",SUİ 337,"47387259",""
+424,"7439","47387250",SUİ 343,"47387250",""
+425,"35598","47387185",SUİ 360,SUİ 360/2017-1,Uluslararası Hukuk 2
+426,"35788",Modern Ortadoğu Tarihi,SUİ 362,"47747230",""
+427,"35599","47387243",SUİ 401,SUİ 401/2017-1,Bitirme Projesi
+428,"7376","47387186",SUİ 439,"47387186",""
+429,"7372","47387182",SUİ 441,"47387182",""
+430,"7385","Modern İranda Siyaset, Toplum ve Uluslararası İlişkiler",SUİ 479,"47387196",""
+431,"7388","47387199",SUİ 495,"47387199",""
+432,"7389","47387200",SUİ 499,"47387200",""
+433,"32835",Uygarlıklar Tarihi,TAR 101,TAR 101/2004-1,Uygarlıklar Tarihi
+434,"35708","47387169",TAR 113B,"47387169",""
+435,"25652",Türk Tarihi II,TAR 146,TAR 146/2007-2,Türk Tarihi II
+436,"30583",Osmanlıca II,TAR 192,TAR 192/2013-2,Osmanlıca II
+437,"24772",Avrupa Tarihi I,TAR 313,TAR 313/2009-2,Avrupa Tarihi I
+438,"34886",American History,TAR 325E,TAR 325E/2017-1,American History
+439,"28876",Türkler ve İslamiyet,TAR 351,TAR 351/2015-2,Türkler ve İslamiyet
+440,"34889","20155890",TAR 361E,TAR 361E/2017-1,Seminar in History I
+441,"35711","47387175",TAR 364B,"47387175",""
+442,"34893","20155900",TAR 395E,TAR 395E/2017-1,Professional English I
+443,"30063",Çağdaş Türkiye Tarihi II,TAR 414,TAR 414/2010-2,Çağdaş Türkiye Tarihi II
+444,"33603",Balkan Tarihi,TAR 423,TAR 423/2010-1,Balkan Tarihi
+445,"31493",Rusya Tarihi,TAR 424,TAR 424/2010-2,Rusya Tarihi
+446,"25722",Ortadoğu Tarihi,TAR 452,TAR 452/2010-2,Ortadoğu Tarihi
+447,"36034","",TAR 541,"",Osmanlı Tarihi Semineri
+448,"36016","",TAR 546,"",Çağdaş Dünya Tarihi Semineri
+449,"36044","",TAR 561,"",Osmanlı ve Yakınçağ Tarihinin Kaynakları
+450,"36017","",TAR 592,"",Seminer 
+451,"24444",Osmanlı Türkçesi II,TDE 112,TDE 112/2006-2,Osmanlı Türkçesi II
+452,"24790",Türkiye Türkçesi II,TDE 122,TDE 122/2007-2,Türkiye Türkçesi II
+453,"29268",Türk Dili Tarihi,TDE 132,TDE 132/2010-2,Türk Dili Tarihi
+454,"25496",Çağdaş Türk Edebiyatı 2 (Roman-Hikaye),TDE 144,TDE 144/2015-2,Çağdaş Türk Edebiyatı 2 (Roman-Hikaye)
+455,"35854","2015881",TDE 151,"2015881",""
+456,"28064",Klasik Edebiyat İncelemeleri I(XIII-XV YY.),TDE 313,TDE 313/2016-2,Klasik Edebiyat İncelemeleri I(XIII-XV YY.)
+457,"39180","5045440",TDE 315,TDE 315/2018-1,Dilbilimine Giriş
+458,"35857",Tarihi Türk Lehçeleri III (Harezm-Çağatay),TDE 321,"2016743",""
+459,"30316",Milli Edebiyat I (Şiir),TDE 323,TDE 323/2016-2,Milli Edebiyat I (Şiir)
+460,"29809",Diksiyon,TDE 384,TDE 384/2015-3,Diksiyon
+461,"22740",Mesleki İngilizce I,TDE 395,TDE 395/2008-1,Mesleki İngilizce I
+462,"34812","5045443",TDE 413,TDE 413/2017-1,XIX. Yüzyıl Türk Edebiyatı 1 (Şiir)
+463,"34813","5045442",TDE 414,TDE 414/2017-1,XIX. Yüzyıl Türk Edebiyatı II (Roman-Hikaye)
+464,"34817",Klasik Edebiyat İncelemeleri IV (XVIII yy.),TDE 424,TDE 424/2017-1,Klasik Edebiyat İncelemeleri IV (XVIII yy.)
+465,"34819","5045416",TDE 436,TDE 436/2017-1,Bitirme Tezi Semineri
+466,"6084","",TDE 457,"5045434",""
+467,"35694",Eleştirel Film Okumaları,TDE 485,"47720967",""
+468,"5886","4369633",TDE 513,"4369633",""
+469,"27107","4367600",TDE 530,TDE 530/2015-2,Seminer
+470,"31672","4367601",TDE 541,TDE 541/2015-3,Türk Dili ve Edebiyatı Yüksek Lisans Tezi
+471,"5572","3555024",TIP 103,"3555024",""
+472,"31690","5429681",TIP 104,TIP 104/2016-3,Hücre Bilimleri IV: Dokudan Sisteme
+473,"34033","4520409",TIP 203,TIP 203/2014-2,Gastrointestinal Sistem ve Metabolizma
+474,"24186","4520410",TIP 204,TIP 204/2014-2,Merkezi Sinir Sistemi
+475,"26955","4520411",TIP 205,TIP 205/2014-3,Endokrin ve Ürogenital Sistemler
+476,"31660","",TIP 303,TIP 303/2015-1,Sindirim ve Üriner Sistem Hastalıklarının Patolojik Temelleri
+477,"24338","",TIP 304,TIP 304/2015-1,Solunum ve Dolaşım Hastalıklarının Patolojik Temelleri
+478,"27104","5429750",TIP 305,TIP 305/2016-3,Endokrin ve Üreme Sistemleri Hastalıklarının Patolojik Temelleri
+479,"26831","5429969",TIP 401,TIP 401/2016-1,Enfeksiyon ve Göğüs Hastalıkları
+480,"31123","5429970",TIP 402,TIP 402/2016-1,Genel Cerrahi
+481,"26832","5429971",TIP 403,TIP 403/2016-2,Çocuk Sağlığı ve Hastalıkları
+482,"34034","5429972",TIP 404,TIP 404/2016-2,İçHastalıkları ve Kardiyoloji
+483,"35750","47648380",TIP 502,"47648380",""
+484,"35752","47648382",TIP 504,"47648382",""
+485,"35753","47648383",TIP 505,"47648383",""
+486,"35756","47648386",TIP 508,"47648386",""
+487,"35757","47648387",TIP 509,"47648387",""
+488,"35759","47648389",TIP 511,"47648389",""
+489,"35761","47648391",TIP 512,"47648391",""
+490,"35764","47648394",TIP 515,"47648394",""
+491,"40256","47648393",TIP 517,"47648393",""
+492,"40258","47648393",TIP 518,"47648393",""
+493,"40264","",TIP 603,"2018-1/2/3",""
+494,"40265","",TIP 604,"2018-1/2/3",""
+495,"40254","",TIP 605,"2018-1/2/3",TIP 605
+496,"40257","",TIP 606,"2018-1/2/3",TIP 606
+497,"40259","",TIP 607,"2018-1/2/3",TIP 607
+498,"40260","",TIP 608,"2018-1/2/3",TIP 608
+499,"40262","",TIP 609,"2018-1/2/3",TIP 609
+500,"40267","",TIP 611,"2018-1/2/3",TIP 611
+501,"35765","47649113",TSD 111,"47649113",""
+502,"35772",Kanser Moleküler Biyolojisi ,TSD 118,"47649120",""
+503,"35780","47649128",TSD 126,"47649128",""
+504,"31708",Disiplinler Arası Tasarım Stüdyosu II,TSR 502,TSR 502/2014-2,Disiplinler Arası Tasarım Stüdyosu II
+505,"5855","4366372",TSR 504,"4366372",""
+506,"33224","4366418",TSR 506,TSR 506/2015-1,Reklam ve Yeni Medya
+507,"26980",Dönem Projesi,TSR 591,TSR 591/2016-1,Dönem Projesi
+508,"26861","4366279",TSR 592,TSR 592/2014-2,Seminer
+509,"27124","4366280",TSR 598,TSR 598/2014-3,Yüksek Lisans Tezi
+510,"24720","2015339",TÜR 102,TÜR 102/2004-2,Türk Dili II
+511,"24735",Girişimciler İçin İktisat,UGİ 103,UGİ 103/2013-2,Girişimciler İçin İktisat
+512,"23062",Rusyada Toplumsal Dönüşüm,UGİ 238,UGİ 238/2013-1,Rusyada Toplumsal Dönüşüm
+513,"22453","2909108",UGİ 315,UGİ 315/2012-2,Girişimcilik ve Liderlik
+514,"28985",İş Planı ve Girişimcilik Uygulamaları,UGİ 318,UGİ 318/2013-2,İş Planı ve Girişimcilik Uygulamaları
+515,"25028",Uluslararası Diplomasi,UGİ 331,UGİ 331/2015-3,Uluslararası Diplomasi
+516,"28738",Girişimcilik ve İnovasyon,UGİ 345,UGİ 345/2012-1,Girişimcilik ve İnovasyon
+517,"27809",RUSÇA OKUMA,UGİ 391R,UGİ 391R/2013-2,RUSÇA OKUMA
+518,"24439",RUSÇA YAZMA,UGİ 392R,UGİ 392R/2013-3,RUSÇA YAZMA
+519,"21799",RUSÇA DİNLEME,UGİ 393R,UGİ 393R/2013-2,RUSÇA DİNLEME
+520,"22458",RUSÇA KONUŞMA,UGİ 394R,UGİ 394R/2013-3,RUSÇA KONUŞMA
+521,"29148",RUSÇA GRAMER,UGİ 395R,UGİ 395R/2013-2,RUSÇA GRAMER
+522,"40345","2015699",UGİ 403,UGİ 403/2018-2,İnsan Kaynakları Yönetimi
+523,"28410",Uluslararası Ekonomi ve Finans ,UGİ 411,UGİ 411/2014-3,Uluslararası Ekonomi ve Finans 
+524,"28411",İş Dünyası İçin Rusça II,UGİ 494R,UGİ 494R/2014-2,İş Dünyası İçin Rusça II
+525,"29457",Uluslararası Ekonomi Politik,ULU 505,ULU 505/2014-2,Uluslararası Ekonomi Politik
+526,"25932",Diplomasi Tarihi,ULU 508,ULU 508/2015-3,Diplomasi Tarihi
+527,"29352",Doğu Asyanın Uluslararası İlişkileri,ULU 543,ULU 543/2014-1,Doğu Asyanın Uluslararası İlişkileri
+528,"22464","2909172",ULU 597,ULU 597/2012-2,Seminer
+529,"30896",Dönem Projesi,ULU 598,ULU 598/2012-3,Dönem Projesi
+530,"32260",Yüksek Lisans Tezi,ULU 599,ULU 599/2012-3,Yüksek Lisans Tezi
