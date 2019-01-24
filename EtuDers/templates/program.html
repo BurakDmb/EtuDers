@@ -379,7 +379,7 @@
 
         $('button#ogrenci').on('click', function (e) {
             e.preventDefault();
-            var okulno= "151201022";
+            var okulno = document.getElementById("ogrenciNo").value;
             if(okulno !== null) {
                 $("#yukleniyorOgrenci").modal();
                 $.post('programsorgula/', {okul_numarasi: okulno}, function (data) {
