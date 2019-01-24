@@ -376,6 +376,48 @@
                 }
             });
         });
+
+        $('button#ogrenci').on('click', function (e) {
+            e.preventDefault();
+            var okulno= "151201022";
+            if(okulno !== null) {
+                $("#yukleniyorOgrenci").modal();
+                $.post('programsorgula/', {okul_numarasi: okulno}, function (data) {
+                    resetsonuclar();
+                    ogrenciobjarr=JSON.parse(data);
+                    ogrenciobj = ogrenciobjarr;
+                    console.log(ogrenciobj);
+                    var sonucvar = 1;
+                    ogrencigoster()
+                    $("#yukleniyorOgrenci").modal('toggle');
+                    if (sonucvar == 0) {
+                        $("#hataOgrenci").focus();
+                        $("#hataOgrenci").modal('toggle');
+                    }
+                    else {
+                        $("#goster").focus();
+                        $("#goster").modal('toggle');
+                        var backButton = function (ev) {
+                            $("#goster").modal('toggle');
+                        };
+                        document.addEventListener("backbutton", backButton, false);
+                    }
+                });
+                $(window).on("navigate", function (event, data) {
+                    var direction = data.state.direction;
+                    if (direction == 'back') {
+                        // do something
+                    }
+                    if (direction == 'forward') {
+                        // do something else
+                    }
+                });
+            }
+        });
+
+
+
+
         
         function replaceAll(str, find, replace) {
             return str.replace(new RegExp(find, 'g'), replace);
@@ -630,73 +672,42 @@
                     if(grid[i][0]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][0]){
-                            if(grid[i][0][cakisma]['subeno']!="0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][0][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][0][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][0][cakisma]+" ";
                         }
-                        //console.log(tmpstr);
                         text2 = document.createTextNode(tmpstr);
                     }
                     if(grid[i][1]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][1]){
-                            if(grid[i][1][cakisma]['subeno']!="0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][1][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][1][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][1][cakisma]+" ";
                         }
                         text3 = document.createTextNode(tmpstr);
                     }
                     if(grid[i][2]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][2]){
-                            if(grid[i][2][cakisma]['subeno']!="0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][2][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][2][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][2][cakisma]+" ";
                         }
                         text4 = document.createTextNode(tmpstr);
                     }
                     if(grid[i][3]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][3]){
-                            if(grid[i][3][cakisma]['subeno']!= "0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][3][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][3][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][3][cakisma]+" ";
                         }
                         text5 = document.createTextNode(tmpstr);
                     }
                     if(grid[i][4]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][4]){
-                            if(grid[i][4][cakisma]['subeno']!="0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][4][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][4][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][4][cakisma]+" ";
                         }
                         text6 = document.createTextNode(tmpstr);
                     }
                     if(grid[i][5]!=null){
                         tmpstr="";
                         for (var cakisma in grid[i][5]){
-                            if(grid[i][5][cakisma]['subeno']!="0"){
-                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma]['dersno'],"<br />","\n")+"-"+grid[i][5][cakisma]['subeno']+" ";
-                            }
-                            else{
-                                tmpstr=tmpstr+replaceAll(grid[i][5][cakisma]['dersno'],"<br />","\n")+" ";
-                            }
+                            tmpstr=tmpstr+grid[i][5][cakisma]+" ";
                         }
                         text7 = document.createTextNode(tmpstr);
                     }

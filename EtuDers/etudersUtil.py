@@ -11,7 +11,6 @@ import urllib3
 
 from datetime import datetime
 
-from etudersweb import application
 from etudersDB import db, Ogrenci, DersKayit, DersBilgi
 
 from sqlalchemy import cast, String
@@ -19,7 +18,6 @@ from sqlalchemy import cast, String
 urllib3.disable_warnings()
 Context = ssl._create_unverified_context()
 Basedir = os.path.abspath(os.path.dirname(__file__))
-
 
 
 # Okulun sitesinden ders programları listesini elde eder, bunu yaparken oturum noyu kullanır.
@@ -38,6 +36,7 @@ def dersListesiAl():
         url=dersListUrl, params=params, headers=headers).json()
     return dersListesi
 
+
 def dersBilgisiAl(dersid, subeno):
     params = dict(
         dil='tr',
@@ -49,6 +48,7 @@ def dersBilgisiAl(dersid, subeno):
         str(dersid)+'/'+str(subeno)
     ders = requests.get(url=dersUrl, params=params, headers=headers).json()
     return ders
+
 
 def dersAdiAl(dersid):
     params = dict(
@@ -63,6 +63,7 @@ def dersAdiAl(dersid):
             url=dersAdiUrl, params=params, headers=headers).json()
     return dersadi
 
+
 def subeListesiAl(dersid, subeno):
     params = dict(
         dil='tr',
@@ -75,10 +76,10 @@ def subeListesiAl(dersid, subeno):
     }
     subeListesiUrl = 'https://program.etu.edu.tr/DersProgrami/api/sube/ogrencilist/' + \
         str(dersid)+'/'+str(subeno)
-    
     subeListesi = requests.get(
         url=subeListesiUrl, params=params, headers=headers).json()
     return subeListesi
+
 
 def fetchAndUpdateDB():
     db.create_all()
@@ -112,12 +113,19 @@ def checkOgrenciRecordExist(ogrenciBilgisi):
             mail=ogrenciBilgisi['Mail']))
         db.session.commit()
 
+
 def addRowIntoDersKayit(ogrenciNo, dersNo, subeNo):
     db.session.add(
-        DersKayit(ogrNo=ogrenciNo, 
-            dersId=dersNo, 
-            subeNo=subeNo))
+        DersKayit(ogrNo=ogrenciNo,
+                  dersId=dersNo,
+                  subeNo=subeNo))
     db.session.commit()
+
+
+def ogrenciDersProgramSorgula(ogrenciNo):
+    return DersKayit.query.filter_by(ogrNo=ogrenciNo).all()
+
+
 
 class Oturum:
     def __init__(self):
@@ -148,7 +156,7 @@ class Oturum:
                 r'https:\/\/program\.etu\.edu\.tr\/DersProgrami\/\?oturumNo=(.*)', r.url).group(1)
             self.oturumAktif = True
 
-            #print('Login session resumed.')
+            # print('Login session resumed.')
 
     # Ubs sistemine giriş yapılır
     def oturumGuncelle(self):
@@ -199,15 +207,18 @@ class Oturum:
                 return
 
         else:
-            print("Login status code error, status code: " +
-                  p.status_code+", headers: "+p.headers)
+            print("Login status code error, status code: " + p.status_code+", headers: "+p.headers)
 
         self.oturumAktif = False
+
+
 oturum=Oturum()
+
+
 class Ders:
     def __init__(self, dersid, subeno):
         # Okulun sitesinden ders program ve ders bilgisi sayfalarından ilgili dersin bilgisini çeker.
-        ders = dersBilgisiAl(dersid, 0)
+        ders = dersBilgisiAl(dersid, subeno)
         dersadi = dersAdiAl(dersid)
         self.derskodu = dersadi['DersKodu']
         self.dersAdi = dersadi['DersAdi']
@@ -215,6 +226,7 @@ class Ders:
         for subeler in ders:
             self.Subeler.append(Sube(
                 subeler['SubeNo'], subeler['OgretimUyesi'], subeler['DersProgramPlan'], self.derskodu))
+
 
 class Plan:
     def __init__(self):
@@ -244,6 +256,7 @@ class Plan:
                     if len(self.grid[i][j]) > 1:
                         self.cakismasayisi = self.cakismasayisi+1
 
+
 class Saat:
     def __init__(self, bas, bit, gun, yer, subeno, dersno):
         self.bas = bas
@@ -254,7 +267,8 @@ class Saat:
         self.dersno = dersno
 
     def __repr__(self):
-        return self.dersno+"-"+str(self.subeno)
+        return self.dersno + "-" + str(self.subeno)
+
 
 class Sube:
     def __init__(self, subeno, hoca, saatler, derskodu):

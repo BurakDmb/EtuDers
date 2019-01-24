@@ -4,8 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pylint = "<2.0.0"
 autopep8 = "*"
+flake8 = "*"
 
 [packages]
 flask = "*"
@@ -17,7 +17,6 @@ certifi = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
 pgcli = "*"
-pylint-flask = "*"
 
 [requires]
 python_version = "2.7"

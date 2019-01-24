@@ -1,5 +1,8 @@
 {
     "python.pythonPath": "C:\\Users\\Burak\\.virtualenvs\\EtuDers-D2eUUvKK\\Scripts\\python.exe",
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask", "--errors-only"]
+    "python.linting.flake8Args": ["--ignore=W291,E303,E501,E226,E225,E126,E127,E128,E302"],
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false
     
 }
