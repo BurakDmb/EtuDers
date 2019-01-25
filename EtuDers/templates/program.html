@@ -336,7 +336,7 @@
                 return;
             }
             $("#yukleniyor").modal();
-            $.post('programhesapla/',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
+            $.post('api/programhesapla/',{ derslistesi: derslistesi, cakisma: cakisma}, function (data) {
                 resetsonuclar();
                 //console.log(data);
                 obj = JSON.parse(data);
@@ -382,7 +382,7 @@
             var okulno = document.getElementById("ogrenciNo").value;
             if(okulno !== null && okulno.length > 0 ) {
                 $("#yukleniyorOgrenci").modal();
-                $.get('programsorgula/'+okulno, function (data) {
+                $.get('api/programsorgula/'+okulno, function (data) {
                     resetsonuclar();
                     ogrenciobjarr=JSON.parse(data);
                     ogrenciobj = ogrenciobjarr;

@@ -17,6 +17,7 @@ certifi = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
 pgcli = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "2.7"
