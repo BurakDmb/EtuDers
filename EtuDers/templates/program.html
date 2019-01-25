@@ -380,13 +380,12 @@
         $('button#ogrenci').on('click', function (e) {
             e.preventDefault();
             var okulno = document.getElementById("ogrenciNo").value;
-            if(okulno !== null) {
+            if(okulno !== null && okulno.length > 0 ) {
                 $("#yukleniyorOgrenci").modal();
-                $.post('programsorgula/', {okul_numarasi: okulno}, function (data) {
+                $.get('programsorgula/'+okulno, function (data) {
                     resetsonuclar();
                     ogrenciobjarr=JSON.parse(data);
                     ogrenciobj = ogrenciobjarr;
-                    console.log(ogrenciobj);
                     var sonucvar = 1;
                     ogrencigoster()
                     $("#yukleniyorOgrenci").modal('toggle');
