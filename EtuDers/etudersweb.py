@@ -14,7 +14,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 from etudersUtil import dersListesiAl
-from etuders import programOlustur, ogrenciDersProgramiGetir
+from etuders import programOlustur, ogrenciDersProgramiGetir, ogrenciSinavProgramiGetir
 
 
 
@@ -41,6 +41,13 @@ def programsorgula(ogrenciNo):
     ipadres=request.headers.get('CF-Connecting-IP', request.remote_addr)
     programlar=ogrenciDersProgramiGetir(ogrenciNo, ipadres)
     return Response(json.dumps(programlar.__dict__, default=str))
+
+
+@application.route('/api/sinavprogramsorgula/<ogrenciNo>', methods=['GET'])
+def sinavprogramsorgula(ogrenciNo):
+    ipadres=request.headers.get('CF-Connecting-IP', request.remote_addr)
+    programlar=ogrenciSinavProgramiGetir(ogrenciNo, ipadres)
+    return Response(json.dumps(programlar, default=str))
 
 
 if __name__ == "__main__":

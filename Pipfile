@@ -18,6 +18,8 @@ flask-sqlalchemy = "*"
 psycopg2 = "*"
 pgcli = "*"
 flask-cors = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [requires]
 python_version = "2.7"

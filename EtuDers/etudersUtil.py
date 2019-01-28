@@ -15,6 +15,8 @@ from etudersDB import db, Ogrenci, DersKayit, DersBilgi
 
 from sqlalchemy import cast, String
 
+from bs4 import BeautifulSoup
+
 urllib3.disable_warnings()
 Context = ssl._create_unverified_context()
 Basedir = os.path.abspath(os.path.dirname(__file__))
@@ -125,7 +127,39 @@ def addRowIntoDersKayit(ogrenciNo, dersNo, subeNo):
 def ogrenciDersProgramSorgula(ogrenciNo):
     return DersKayit.query.filter_by(ogrNo=ogrenciNo).all()
 
+def ogrenciDersProgramDetayliSorgula(ogrenciNo):
+    return db.session.query(DersBilgi, DersKayit).filter(DersBilgi.dersId==DersKayit.dersId).filter(DersKayit.ogrNo==ogrenciNo).all()
 
+
+def araSinavListesiAl():
+    r = requests.get('http://kayit.etu.edu.tr/ara_sinav_programi.php')
+    bs=BeautifulSoup(r.content, "lxml")
+    table_body=bs.find('table')
+    rows = table_body.find_all('tr')
+    araSinavListesi=list()
+    for row in rows:
+        cols=row.find_all('td')
+        cols=[x.text.strip() for x in cols]
+        araSinavListesi.append(cols)
+    return araSinavListesi
+
+def ogrenciAraSinavListele(ogrenciNo):
+    r = requests.get('http://kayit.etu.edu.tr/ara_sinav_programi.php')
+    bs=BeautifulSoup(r.content, "lxml")
+    table_body=bs.find('table')
+    rows = table_body.find_all('tr')
+    araSinavListesi=list()
+    ogrenciDersler=ogrenciDersProgramDetayliSorgula(ogrenciNo)
+    dersKodListesi=list()
+    for ders in ogrenciDersler:
+        dersKodListesi.append(ders[0].dersKodu)
+    for row in rows:
+        cols=row.find_all('td')
+        cols=[x.text.strip() for x in cols]
+        if cols:
+            if cols[0] in dersKodListesi:
+                    araSinavListesi.append(cols)
+    return araSinavListesi
 
 class Oturum:
     def __init__(self):

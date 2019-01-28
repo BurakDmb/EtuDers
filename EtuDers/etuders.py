@@ -4,7 +4,7 @@
 
 from copy import deepcopy
 from etudersDB import db, LoggingEnabled, Log, OgrenciLog
-from etudersUtil import Ders, Plan, ogrenciDersProgramSorgula
+from etudersUtil import Ders, Plan, ogrenciDersProgramSorgula, ogrenciAraSinavListele
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -53,6 +53,14 @@ def ogrenciDersProgramiGetir(ogrenciNo, ipAdres):
         db.session.commit()
     return program
 
+
+
+def ogrenciSinavProgramiGetir(ogrenciNo, ipAdres):
+    sinavListesi = ogrenciAraSinavListele(ogrenciNo)
+    # if LoggingEnabled:
+    #    db.session.add(OgrenciLog(ogrenciNo=ogrenciNo, ip=ipAdres))
+    #    db.session.commit()
+    return sinavListesi
 
 # Eski fonksiyon, artık kullanılmıyor
 def cakismali(program, limit):
