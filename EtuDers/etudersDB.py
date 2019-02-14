@@ -1,24 +1,11 @@
 # -*- coding: utf-8 -*-
 """This is the Db module for EtuDers"""
-import os
-from etudersweb import application
-
-
+from etudersweb import getDB
 from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
 
+db=getDB()
 LoggingEnabled = True
-application.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-application.config['SQLALCHEMY_BINDS']={
-    'db1': os.environ['DATABASE_URL'],
-    'db2': os.environ['HEROKU_POSTGRESQL_BROWN_URL']
-}
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-if not application.config['SQLALCHEMY_DATABASE_URI']:
-    LoggingEnabled = False
 
-
-db=SQLAlchemy(application)
 class Log(db.Model):
     __bind_key__ = 'db2'
     id = db.Column(db.Integer, primary_key=True)
@@ -75,7 +62,3 @@ class DersKayit(db.Model):
 
     def __str__(self):
         return '<OgrNo: %r, DersId: %r,  SubeNo: %r>' % (self.ogrNo, self.dersId, self.subeNo)
-
-
-db.create_all(bind='db1')
-db.create_all(bind='db2')

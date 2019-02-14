@@ -8,13 +8,9 @@ import requests
 import re
 import urllib2
 import urllib3
-
 from datetime import datetime
-
 from etudersDB import db, Ogrenci, DersKayit, DersBilgi
-
 from sqlalchemy import cast, String
-
 from bs4 import BeautifulSoup
 
 urllib3.disable_warnings()
@@ -142,6 +138,30 @@ def araSinavListesiAl():
         cols=[x.text.strip() for x in cols]
         araSinavListesi.append(cols)
     return araSinavListesi
+
+
+def servisListesiAl():
+    r = requests.get('https://www.etu.edu.tr/tr/iletisim/ulasim')
+    bs=BeautifulSoup(r.content, "lxml")
+    table_body=bs.find_all('table')
+    rows = table_body[1].find_all('tr')
+    servisListesi=list()
+    for row in rows:
+        cols=row.find_all('td')
+        cols=[x.text.strip() for x in cols]
+        if len(cols)>0:
+            servisListesi.append(cols)
+    rows = table_body[2].find_all('tr')
+    haftasonuServisListesi=list()
+    for row in rows:
+        cols=row.find_all('td')
+        cols=[x.text.strip() for x in cols]
+        if len(cols)>0:
+            haftasonuServisListesi.append(cols)
+    newList=list()
+    newList.append(servisListesi)
+    newList.append(haftasonuServisListesi)
+    return newList
 
 def ogrenciAraSinavListele(ogrenciNo):
     r = requests.get('http://kayit.etu.edu.tr/ara_sinav_programi.php')
