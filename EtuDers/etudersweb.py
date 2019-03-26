@@ -48,7 +48,7 @@ def getDB():
 
 
 
-from etudersUtil import dersListesiAl, servisListesiAl
+from etudersUtil import dersListesiAl, servisListesiAl, dersBilgisiDump
 from etuders import programOlustur, ogrenciDersProgramiGetir, ogrenciSinavProgramiGetir
 
 
@@ -90,6 +90,12 @@ def sinavprogramsorgula(ogrenciNo):
 def servisprogramsorgula():
     servisListesi=servisListesiAl()
     return Response(json.dumps(servisListesi, default=str))
+
+
+@application.route('/api/dumpDersler/', methods=['GET'])
+def dumpDersler():
+    dersBilgisiDump(True)
+    return Response()
 
 
 if __name__ == "__main__":

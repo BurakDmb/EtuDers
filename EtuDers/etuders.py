@@ -4,7 +4,7 @@
 
 from copy import deepcopy
 from etudersDB import db, LoggingEnabled, Log, OgrenciLog
-from etudersUtil import Ders, Plan, ogrenciDersProgramSorgula, ogrenciAraSinavListele
+from etudersUtil import Plan, ogrenciDersProgramSorgula, ogrenciAraSinavListele, dersAl
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -21,7 +21,7 @@ sys.setdefaultencoding('utf8')
 def programOlustur(derslistesi, limit, ipAdres):
     dersler = list()
     for dersno in derslistesi:
-        dersler.append(Ders(dersno, 0))  # 0 tum subeler icin
+        dersler.append(dersAl(dersno, 0, True))  # 0 tum subeler icin
     if LoggingEnabled:
         db.session.add(Log(dersId=', '.join(map(str, derslistesi)), ip=ipAdres))
         db.session.commit()
@@ -47,7 +47,7 @@ def ogrenciDersProgramiGetir(ogrenciNo, ipAdres):
     dersListesi = ogrenciDersProgramSorgula(ogrenciNo)
     program = Plan()
     for dersKayit in dersListesi:
-        program.subeEkle(Ders(dersKayit.dersId, dersKayit.subeNo).Subeler[0])  # 0 tum subeler icin
+        program.subeEkle(dersAl(dersKayit.dersId, dersKayit.subeNo).Subeler[0])
     if LoggingEnabled:
         db.session.add(OgrenciLog(ogrenciNo=ogrenciNo, ip=ipAdres))
         db.session.commit()

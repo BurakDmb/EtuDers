@@ -365,14 +365,21 @@
                     document.getElementById("programList").appendChild(tr);
                     sonucvar=1;
                 }
-                $("#yukleniyor").modal('toggle');
+                setTimeout(function() {
+                    $("#yukleniyor").modal('toggle');
+                }, 500);
                 if(sonucvar==0){
-                    $("#hata").focus();
-                    $("#hata").modal('toggle');
+                    setTimeout(function() {
+                        $("#hata").focus();
+                        $("#hata").modal('toggle');
+                    }, 500);
                 }
                 else{
-                    $("#sonuc").focus();
-                    $("#sonuc").modal('toggle');
+                    setTimeout(function() {
+                        $("#sonuc").focus();
+                        $("#sonuc").modal('toggle');
+                    }, 500);
+                    
                 }
             });
         });

@@ -181,6 +181,51 @@ def ogrenciAraSinavListele(ogrenciNo):
                     araSinavListesi.append(cols)
     return araSinavListesi
 
+def dersBilgisiDump(dumpListe=False):
+    if dumpListe:
+        dersListesiDump()
+        dersListeleri=dersListesiDumpRead()
+        for dersno in dersListeleri:
+            dersKodu = dersno['DersID']
+            ders = Ders(dersKodu, 0)
+            with open('DB/Dersler/'+str(dersKodu)+'-ders.json', 'w') as outfile:  
+                json.dump(ders.dumpDers, outfile)
+            with open('DB/Dersler/'+str(dersKodu)+'-dersAdi.json', 'w') as outfile:  
+                json.dump(ders.dumpDersAdi, outfile)
+    else:
+        dersListeleri=dersListesiAl()
+        for dersno in dersListeleri:
+            dersKodu = dersno['DersID']
+            ders = Ders(dersKodu, 0)
+            with open('DB/Dersler/'+str(dersKodu)+'-ders.json', 'w') as outfile:  
+                json.dump(ders.dumpDers, outfile)
+            with open('DB/Dersler/'+str(dersKodu)+'-dersAdi.json', 'w') as outfile:  
+                json.dump(ders.dumpDersAdi, outfile)
+
+
+def dersListesiDump():
+    dersListeleri=dersListesiAl()
+    with open('DB/derslistesi.json', 'w') as outfile:  
+            json.dump(dersListeleri, outfile)
+
+
+def dersListesiDumpRead():
+    with open('DB/derslistesi.json') as dersFile:
+        derslistesi = json.load(dersFile)
+        return derslistesi
+
+
+def dersAl(dersno, sube=0, fromFile=False):
+    if fromFile:
+        with open('DB/Dersler/'+str(dersno)+'-ders.json') as dersFile:  
+            with open('DB/Dersler/'+str(dersno)+'-dersAdi.json') as dersAdiFile:  
+                fders = json.load(dersFile)
+                fdersAdi = json.load(dersAdiFile)
+                return Ders(0, sube, True, fders, fdersAdi)
+    else:
+        return Ders(dersno, 0)
+
+
 class Oturum:
     def __init__(self):
         requests.Session().close()
@@ -270,16 +315,33 @@ oturum=Oturum()
 
 
 class Ders:
-    def __init__(self, dersid, subeno):
-        # Okulun sitesinden ders program ve ders bilgisi sayfalarından ilgili dersin bilgisini çeker.
-        ders = dersBilgisiAl(dersid, subeno)
-        dersadi = dersAdiAl(dersid)
-        self.derskodu = dersadi['DersKodu']
-        self.dersAdi = dersadi['DersAdi']
-        self.Subeler = list()
-        for subeler in ders:
-            self.Subeler.append(Sube(
-                subeler['SubeNo'], subeler['OgretimUyesi'], subeler['DersProgramPlan'], self.derskodu))
+    def __init__(self, dersid, subeno, fromFile=False, fileDers=None, fileDersAdi=None, dumpDers=False):
+        if not fromFile:
+
+            # Okulun sitesinden ders program ve ders bilgisi sayfalarından ilgili dersin bilgisini çeker.
+            ders = dersBilgisiAl(dersid, subeno)
+            dersadi = dersAdiAl(dersid)
+            self.derskodu = dersadi['DersKodu']
+            self.dersAdi = dersadi['DersAdi']
+            self.Subeler = list()
+            self.dumpDers=ders
+            self.dumpDersAdi=dersadi
+            for subeler in ders:
+                self.Subeler.append(Sube(
+                    subeler['SubeNo'], subeler['OgretimUyesi'], subeler['DersProgramPlan'], self.derskodu))
+        else:
+            # Mevcut ders dump dosyasindan ilgili dersin bilgisini çeker.
+            ders = fileDers
+            dersadi = fileDersAdi
+            self.derskodu = dersadi['DersKodu']
+            self.dersAdi = dersadi['DersAdi']
+            self.Subeler = list()
+            self.dumpDers=ders
+            self.dumpDersAdi=dersadi
+            for subeler in ders:
+                self.Subeler.append(Sube(
+                    subeler['SubeNo'], subeler['OgretimUyesi'], subeler['DersProgramPlan'], self.derskodu))
+
 
 
 class Plan:
