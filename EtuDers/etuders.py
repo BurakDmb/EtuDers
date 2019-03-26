@@ -47,7 +47,7 @@ def ogrenciDersProgramiGetir(ogrenciNo, ipAdres):
     dersListesi = ogrenciDersProgramSorgula(ogrenciNo)
     program = Plan()
     for dersKayit in dersListesi:
-        program.subeEkle(dersAl(dersKayit.dersId, dersKayit.subeNo).Subeler[0])
+        program.subeEkle(dersAl(dersKayit.dersId, dersKayit.subeNo, True).Subeler[0])
     if LoggingEnabled:
         db.session.add(OgrenciLog(ogrenciNo=ogrenciNo, ip=ipAdres))
         db.session.commit()
