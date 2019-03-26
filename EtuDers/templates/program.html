@@ -395,14 +395,20 @@
                     ogrenciobj = ogrenciobjarr;
                     var sonucvar = 1;
                     ogrencigoster()
-                    $("#yukleniyorOgrenci").modal('toggle');
+                    setTimeout(function() {
+                        $("#yukleniyorOgrenci").modal('toggle');
+                    }, 500);
                     if (sonucvar == 0) {
-                        $("#hataOgrenci").focus();
-                        $("#hataOgrenci").modal('toggle');
+                        setTimeout(function() {
+                            $("#hataOgrenci").focus();
+                            $("#hataOgrenci").modal('toggle');
+                        }, 500);
                     }
                     else {
-                        $("#goster").focus();
-                        $("#goster").modal('toggle');
+                        setTimeout(function() {
+                            $("#goster").focus();
+                            $("#goster").modal('toggle');
+                        }, 500);
                         var backButton = function (ev) {
                             $("#goster").modal('toggle');
                         };
